@@ -5,6 +5,8 @@ const adminCtrl = {
   adminRegister: async (req, res) => {
     try {
       const { name, email, password } = req.body;
+      if (name === "" && email === "" && password === "")
+        return res.status(400).json({ msg: "All fields should be filled" });
 
       const admin = await Admins.findOne({ email });
       if (admin)
@@ -30,18 +32,20 @@ const adminCtrl = {
 
       const access_token = createAccessToken({ id: newAdmin._id });
       const refresh_token = createRefreshToken({ id: newAdmin._id });
-      res.cookie("refreshtoken", refresh_token, {
-        httpOnly: true,
-        path: "/admin/refresh_token",
-        maxAge: 30 * 24 * 60 * 60 * 1000, //30days
-      }).json({
-        msg: "Registered Successfully",
-        access_token,
-        admin: {
-          ...newAdmin._doc,
-          password: "",
-        },
-      });
+      res
+        .cookie("refreshtoken", refresh_token, {
+          httpOnly: true,
+          path: "/admin/refresh_token",
+          maxAge: 30 * 24 * 60 * 60 * 1000, //30days
+        })
+        .json({
+          msg: "Registered Successfully",
+          access_token,
+          admin: {
+            ...newAdmin._doc,
+            password: "",
+          },
+        });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -49,7 +53,10 @@ const adminCtrl = {
   adminLogin: async (req, res) => {
     try {
       const { email, password } = req.body;
-      const admin = await Admins.findOne({ email })
+      if (email === "" && password === "")
+        return res.status(400).json({ msg: "All fields should be filled" });
+
+      const admin = await Admins.findOne({ email });
       if (!admin) return res.status(400).json({ msg: "Admin doesn't exist" });
       const isMatch = await bcrypt.compare(password, admin.password);
       if (!isMatch) return res.status(400).json({ msg: "Incorrect password" });

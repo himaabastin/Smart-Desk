@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./adminLogin.css";
 import axios from "axios";
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 const AdminLogin = () => {
   const [admin, setAdmin] = useState({ email: "", password: "" });
@@ -18,32 +18,45 @@ const AdminLogin = () => {
       window.location.href = "/adminHome";
     } catch (err) {
       // console.log(err.response.data.msg, "error");
-      alert(err.response.data.msg);
+      // alert(err.response.data.msg);
+      Swal.fire( {
+        text:err.response.data.msg,   
+        confirmButtonColor: '#b8121b'
+    }); 
+     
+     
     }
   };
+   
+    
 
   return (
     <div className="login-page">
       <h2 className="heading">ADMIN LOGIN</h2>
       <form onSubmit={loginSubmit}>
+        <label className="Label">Email</label>
+        <br/>
         <input className="inputStyle"
           type="email"
           name="email"
-          required
-          placeholder="Email"
+         
+          placeholder=""
           onChange={onChangeInput}
         />
-
+        <br/>
+        <label className="Label">Password</label>
+<br/>
         <input
           type="password"
           name="password"
-          required
-          placeholder="Password"
+         
+          placeholder=""
           onChange={onChangeInput}
         />
-
+       
         <div className="row">
-          <button type="submit">Login</button>
+          
+          <button type="submit"  >Login</button>
         </div>
       </form>
     </div>
