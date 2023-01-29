@@ -1,0 +1,43 @@
+.login-page{
+  
+    max-width: 500px;
+    border: 2px solid rgb(33, 171, 28);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 55px auto;
+}
+.heading{
+    color:#fff;
+    letter-spacing: 2px;
+ margin-left:7rem ;
+ margin-bottom: 25px;
+}
+
+.login-page form input,
+.login-page form button{
+    width: 80%;
+    height: 40px;
+    margin: 10px 0;
+    margin-left: 25px;
+    padding: 0  5px;
+    outline: rgb(33, 171, 28);
+    border:1px solid rgb(33, 171, 28) ;
+    border-radius: 5px;
+
+}
+.login-page form .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.login-page form button{
+    width: 150px;
+    background:rgb(33, 171, 28); 
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-left: 9rem;
+}
+

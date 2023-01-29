@@ -1,0 +1,43 @@
+header{
+    background-color: rgb(33, 37, 33);
+    min-height: 70px;
+    width:100% ;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+header.logo{
+    flex:1
+}
+header ul li{
+    display: inline-block;
+    justify-content: space-between;
+}
+.LOGO{
+    background: rgb(33, 37, 33);
+    opacity: 0,;
+}
+
+.NAMES{
+    text-decoration: none;
+    list-style: none;
+    border:none;
+    outline: none;
+    background: rgb(33, 37, 33);
+    cursor: pointer;
+    color: rgb(240, 243, 243);
+  }
+  .menu{
+    background: rgb(33, 37, 33);
+    cursor: pointer;
+    color: rgb(240, 243, 243);
+    display: none;
+  }
+  
+  
+  
+ 
+
