@@ -1,5 +1,5 @@
 header{
-    background-color: rgb(33, 37, 33);
+    background-color: rgb(8, 53, 8);
     min-height: 70px;
     width:100% ;
     overflow: hidden;
@@ -12,13 +12,26 @@ header{
 header.logo{
     flex:1
 }
+header a{
+  
+text-decoration: none;  
+  color: #fff;
+}
+header a :hover{
+    opacity: 1;
+}
 header ul li{
     display: inline-block;
     justify-content: space-between;
+    background:  rgb(8, 53, 8);
+    text-decoration: none;
 }
 .LOGO{
-    background: rgb(33, 37, 33);
+    background:  rgb(8, 53, 8);
     opacity: 0,;
+}
+header ul li:hover{
+    opacity: 1;
 }
 
 .NAMES{
@@ -26,12 +39,12 @@ header ul li{
     list-style: none;
     border:none;
     outline: none;
-    background: rgb(33, 37, 33);
+    background:  rgb(8, 53, 8);
     cursor: pointer;
     color: rgb(240, 243, 243);
   }
   .menu{
-    background: rgb(33, 37, 33);
+    background:  rgb(8, 53, 8);
     cursor: pointer;
     color: rgb(240, 243, 243);
     display: none;

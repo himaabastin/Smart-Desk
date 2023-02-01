@@ -31,8 +31,9 @@ const AdminLogin = () => {
     
 
   return (
+    
     <div className="login-page">
-      <h2 className="heading">ADMIN LOGIN</h2>
+      <h2 className="heading" style={{color:"black"}}>ADMIN LOGIN</h2>
       <form onSubmit={loginSubmit}>
         <label className="Label">Email</label>
         <br/>

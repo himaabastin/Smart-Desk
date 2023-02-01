@@ -5,7 +5,7 @@ const adminCtrl = {
   adminRegister: async (req, res) => {
     try {
       const { name, email, password } = req.body;
-      if (name === "" && email === "" && password === "")
+      if (name === "" || email === "" || password === "")
         return res.status(400).json({ msg: "All fields should be filled" });
 
       const admin = await Admins.findOne({ email });
@@ -53,7 +53,7 @@ const adminCtrl = {
   adminLogin: async (req, res) => {
     try {
       const { email, password } = req.body;
-      if (email === "" && password === "")
+      if (email === "" || password === "")
         return res.status(400).json({ msg: "All fields should be filled" });
 
       const admin = await Admins.findOne({ email });
@@ -83,33 +83,22 @@ const adminCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  generateAccessToken: async (req, res) => {
+  refreshToken: (req, res) => {
     try {
-        const rf_token = req.cookies.refreshtoken
-        if(!rf_token) return res.status(400).json({msg: "Please login now."})
-
-        jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, async(err, result) => {
-            if(err) return res.status(400).json({msg: "Please login now."})
-
-            const admin = await Admins.findById(result.id).select("-password")
-          
-
-            if(!admin) return res.status(400).json({msg: "This admin does not exist."})
-
-            const access_token = createAccessToken({id: result.id})
-
-            res.json({
-                access_token,
-                admin
-            })
-        })
-        
+      const rf_token = req.cookies.refreshtoken;
+      if (!rf_token)
+        return res.status(400).json({ msg: "Please Login or Register" });
+      jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, admin) => {
+        if (err)
+          return res.status(400).json({ msg: "Please Login or Register" });
+        const accesstoken = createAccessToken({ id: admin._id });
+        res.json({ accesstoken,rf_token });
+      });
+    
     } catch (err) {
-        return res.status(500).json({msg: err.message})
+      return res.status(500).json({ msg: err.message });
     }
-}
-
-,
+  },
   getAdmin: async(req, res) => {
     try {
       const admin = await Admins.findById(req.admin.id).select("-password");

@@ -1,5 +1,5 @@
 *{
-    background:#616361;
+    background:#fff;
 }
 
 .login-page{
@@ -12,7 +12,7 @@
     
 }
 .heading{
-    color:#fff;
+    color:rgba(0, 0, 0, 0.067);
     letter-spacing: 2px;
  margin-left:7rem ;
  margin-bottom: 25px;

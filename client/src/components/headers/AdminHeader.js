@@ -1,12 +1,24 @@
 import React,{useContext} from 'react'
-import {GlobalState} from '../../GlobalState'
+import {DataProvider, GlobalState} from '../../GlobalState'
 import Menu from './icons/menu-icon.svg'
 // import Close from './icons/close.svg'
 import Logo from './icons/logo.png'
 import {Link} from 'react-router-dom'
 import './header.css'
 const AdminHeader = () => {
-    const value=useContext(GlobalState)
+    const state=useContext(GlobalState)
+    console.log("globalstate",state);
+  const [isLogged,setIsLogged]=state.adminAPI.isLogged
+  const [isAdmin,setIsAdmin]=state.adminAPI.isAdmin
+
+function LoggedRouter() {
+  return(
+    <>
+    {/* <li style={{color:"#ffff"}}>ADMIN </li> */}
+    <li style={{color:"#ffff"}}><Link to="/adminLogin">Logout</Link></li>
+    </>
+  )
+}
   return (
     <header>
       <div className='menu'>
@@ -15,18 +27,16 @@ const AdminHeader = () => {
 <div className='logo'>
   <Link to='/adminHome'><img src={Logo} width='70' className='LOGO' /></Link>
   
+  
 </div>
-<div>
-<ul>
-  <li className='NAMES'>Admin</li>
-  <li className='NAMES'><Link to='/adminLogin' className='NAMES'>Login</Link></li>
 
-  <li className='NAMES'><Link to='/adminLogout' className='NAMES'>Logout</Link></li>
-  {/* <li>
-    <img src={Close} width='20'/>
-  </li> */}
+<ul>
+  {isAdmin}
+  {
+    isLogged ? LoggedRouter():""
+  }
 </ul> 
-</div>
+
 
 
 
