@@ -31,36 +31,39 @@ const AdminLogin = () => {
     
 
   return (
-    
-    <div className="login-page">
-      <h2 className="heading" style={{color:"black"}}>ADMIN LOGIN</h2>
-      <form onSubmit={loginSubmit}>
-        <label className="Label">Email</label>
-        <br/>
-        <input className="inputStyle"
+    <body className="body">
+ <div className="box">
+      <form className="form" onSubmit={loginSubmit}>
+      <h2>Admin Login</h2>
+      <div className="inputBox">
+      <input 
           type="email"
           name="email"
          
           placeholder=""
           onChange={onChangeInput}
         />
-        <br/>
-        <label className="Label">Password</label>
-<br/>
-        <input
+         <span>Email</span>
+        <i></i>
+     
+        <input 
           type="password"
           name="password"
          
           placeholder=""
           onChange={onChangeInput}
         />
-       
+         <span>Password</span>
+        <i></i>
+       </div>
         <div className="row">
           
-          <button type="submit"  >Login</button>
+          <button type="submit" className="button" >Login</button>
         </div>
       </form>
     </div>
+    </body>
+   
   );
 };
 

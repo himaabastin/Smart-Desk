@@ -25,42 +25,48 @@ const AdminRegister = () => {
   };
 
   return (
-    <div className="login-page">
-      <h2 className="heading">ADMIN REGISTER</h2>
-      <form onSubmit={registerSubmit}>
-      <label className="Label">Name</label>
-        <br/>
-      <input
+    <body className="body">
+ <div className="box">
+      <form className="form" onSubmit={registerSubmit}>
+      <h2>Admin Register</h2>
+      <div className="inputBox">
+      <input 
           type="text"
           name="name"
-          
+         
           placeholder=""
           onChange={onChangeInput}
         />
-         <label className="Label">Email</label>
-        <br/>
-        <input
+         <span>Name</span>
+        <i></i>
+
+      <input 
           type="email"
           name="email"
-          
+         
           placeholder=""
           onChange={onChangeInput}
         />
-    <label className="Label">Password</label>
-        <br/>
-        <input
+         <span>Email</span>
+        <i></i>
+     
+        <input 
           type="password"
           name="password"
-          
+         
           placeholder=""
           onChange={onChangeInput}
         />
-
+         <span>Password</span>
+        <i></i>
+       </div>
         <div className="row">
-          <button type="submit">REGISTER</button>
+          
+          <button type="submit" className="button" >Register</button>
         </div>
       </form>
     </div>
+    </body>
   );
 };
 

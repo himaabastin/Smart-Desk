@@ -1,5 +1,5 @@
 header{
-    background-color: rgb(8, 53, 8);
+    background-color: #0a3c4e;
     min-height: 70px;
     width:100% ;
     overflow: hidden;
@@ -23,11 +23,11 @@ header a :hover{
 header ul li{
     display: inline-block;
     justify-content: space-between;
-    background:  rgb(8, 53, 8);
+    background:#0a3c4e;
     text-decoration: none;
 }
 .LOGO{
-    background:  rgb(8, 53, 8);
+    background: #0a3c4e;
     opacity: 0,;
 }
 header ul li:hover{
@@ -39,12 +39,12 @@ header ul li:hover{
     list-style: none;
     border:none;
     outline: none;
-    background:  rgb(8, 53, 8);
+    background:  #0a3c4e;
     cursor: pointer;
     color: rgb(240, 243, 243);
   }
   .menu{
-    background:  rgb(8, 53, 8);
+    background: #0a3c4e;
     cursor: pointer;
     color: rgb(240, 243, 243);
     display: none;
