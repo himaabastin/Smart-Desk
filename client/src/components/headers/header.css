@@ -49,6 +49,24 @@ header ul li:hover{
     color: rgb(240, 243, 243);
     display: none;
   }
+  .logout-button{
+    background: #32697d;
+    border-style: none;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    margin-top: 10px;
+    margin-left: 100px;
+
+  }
+  .logout-button:hover{
+    background:#0ea3d9;
+    border-radius: 5px;
+    transition: 1s;
+  }
   
   
   

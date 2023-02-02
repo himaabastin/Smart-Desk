@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom'
 import './header.css'
 import axios from 'axios'
 
+
 const AdminHeader = () => {
     const state=useContext(GlobalState)
     console.log("globalstate",state);
@@ -26,7 +27,8 @@ function LoggedRouter() {
   return(
     <>
     {/* <li style={{color:"#ffff"}}>ADMIN </li> */}
-    <li style={{color:"#ffff"}}><Link to="/adminLogin"onClick={logoutAdmin}>Logout</Link></li>
+    <li style={{color:"#ffff"}}><Link to="/adminLogin"onClick={logoutAdmin} ><button className='logout-button'>Logout</button></Link></li>
+   
     </>
   )
 }

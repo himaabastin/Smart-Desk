@@ -1,12 +1,27 @@
-import React from 'react'
-
+import React,{useContext} from "react";
+import { GlobalState } from "../../GlobalState";
+import './utilis/NotFound/AdminHome.css'
+import NotFound from "./utilis/NotFound/NotFound";
 const AdminHome = () => {
-  return (
-    <div>
-      
-      ADMIN HOME
-    </div>
-  )
-}
+  const state=useContext(GlobalState)
+  // console.log("globalstate",state);
+const [isLogged,setIsLogged]=state.adminAPI.isLogged
+const [isAdmin,setIsAdmin]=state.adminAPI.isAdmin
 
-export default AdminHome
+function LoggedRouter(){
+  return <div className="data">
+  
+  </div>;
+}
+return(
+  <>
+  {isAdmin}
+  {
+    isLogged ? LoggedRouter():NotFound()
+  }
+  </>
+)
+ 
+};
+
+export default AdminHome;
