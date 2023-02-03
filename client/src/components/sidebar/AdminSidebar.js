@@ -12,38 +12,33 @@ function AdminSidebar() {
   const [isAdmin, setIsAdmin] = state.adminAPI.isAdmin;
   const [adminDetails,setAdminDetails]=useState({})
 
-    // GetAdmin();
-      // useEffect(() => {
 
-//         const GetAdmin = async (e) => {
-//           try {
-//             const res = await axios.get("/admin/refresh_token");
-//             console.log("for sidebar",res.data.adminDetails);
-//             // console.log("set", setAdminDetails(res.data.adminDetails));
-//             setAdminDetails(res.data.adminDetails);
-//           } catch (err) {
-//             console.log(err.response.data.msg, "error");
-    
-//             Swal.fire({
-//               text: err.response.data.msg,
-//               confirmButtonColor: "#b8121b",
-//             });
-//           }
-//         };
-// GetAdmin()
-      // }, [])
-    
+     
 
-      useEffect(() => {}, [])
+      useEffect(() => {
+        const GetAdmin = async (e) => {
+          try {
+            const res = await axios.get("/admin/refresh_token");
+            console.log("for sidebar",res.data.adminDetails);
+            // console.log("set", setAdminDetails(res.data.adminDetails));
+            setAdminDetails(res.data.adminDetails);
+          } catch (err) {
+            console.log(err.response.data.msg, "error");
+    
+            Swal.fire({
+              text: err.response.data.msg,
+              confirmButtonColor: "#b8121b",
+            });
+          }
+        };
+        GetAdmin()
+      }, [])
   
-  function LoggedRouter() {
-   
 
     return (
 
       <div className="sidebar">
-        
-        <div className="side-menu">
+        {isLogged &&  <div className="side-menu">
           <center>
             <img src={adminDetails.avatar} />
             <br />
@@ -82,18 +77,12 @@ function AdminSidebar() {
           </h5>
 
           
-        </div>
+        </div>}
+        
+       
       </div>
     );
-  }
-  return(
-    <>
-      {isAdmin}
-  {
-    isLogged ? LoggedRouter():""
-  }
-    </>
-  )
+  
 }
 
 export default AdminSidebar;
