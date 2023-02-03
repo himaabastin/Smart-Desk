@@ -83,16 +83,21 @@ const adminCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  refreshToken: (req, res) => {
+  refreshToken: async(req, res) => {
     try {
       const rf_token = req.cookies.refreshtoken;
       if (!rf_token)
         return res.status(400).json({ msg: "Please Login or Register" });
-      jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, admin) => {
+      jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, async(err, admin) => {
+
         if (err)
           return res.status(400).json({ msg: "Please Login or Register" });
+          
+          const adminDetails = await Admins.findById(admin.id).select("-password")
         const accesstoken = createAccessToken({ id: admin._id });
-        res.json({ accesstoken,rf_token });
+        
+
+        res.json({ accesstoken,rf_token,adminDetails });
       });
     
     } catch (err) {

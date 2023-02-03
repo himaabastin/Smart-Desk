@@ -8,6 +8,7 @@ export const DataProvider=({children})=>{
 
     const refreshToken=async ()=>{
         const res =await axios.get('/admin/refresh_token')
+        
         setToken(res.data.accesstoken)
     }
    

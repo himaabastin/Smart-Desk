@@ -1,22 +1,53 @@
-import React,{useContext} from "react";
+import axios from "axios";
+import React,{useContext,useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { GlobalState } from "../../GlobalState";
-
+import Swal from "sweetalert2";
 import "./AdminSidebar.css";
 
 function AdminSidebar() {
   const state = useContext(GlobalState);
-  console.log("globalstate", state);
+  // console.log("globalstate", state);
   const [isLogged, setIsLogged] = state.adminAPI.isLogged;
   const [isAdmin, setIsAdmin] = state.adminAPI.isAdmin;
+  const [adminDetails,setAdminDetails]=useState({})
+
+    // GetAdmin();
+      // useEffect(() => {
+
+//         const GetAdmin = async (e) => {
+//           try {
+//             const res = await axios.get("/admin/refresh_token");
+//             console.log("for sidebar",res.data.adminDetails);
+//             // console.log("set", setAdminDetails(res.data.adminDetails));
+//             setAdminDetails(res.data.adminDetails);
+//           } catch (err) {
+//             console.log(err.response.data.msg, "error");
+    
+//             Swal.fire({
+//               text: err.response.data.msg,
+//               confirmButtonColor: "#b8121b",
+//             });
+//           }
+//         };
+// GetAdmin()
+      // }, [])
+    
+
+      useEffect(() => {}, [])
+  
   function LoggedRouter() {
+   
+
     return (
+
       <div className="sidebar">
+        
         <div className="side-menu">
           <center>
-            <img src="https://www.pngitem.com/pimgs/m/22-223968_default-profile-picture-circle-hd-png-download.png" />
+            <img src={adminDetails.avatar} />
             <br />
-            <h4>Admin Name</h4>
+            <h4>{adminDetails.name}</h4>
           </center>
           <br />
           <h5>

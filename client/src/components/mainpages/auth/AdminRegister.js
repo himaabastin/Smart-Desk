@@ -3,7 +3,7 @@ import "./adminLogin.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 const AdminRegister = () => {
-  const [admin, setAdmin] = useState({ email: "", password: "" });
+  const [admin, setAdmin] = useState({ name:"",email: "", password: "" });
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     // console.log(e.target.name, e.target.value, "tezt");
