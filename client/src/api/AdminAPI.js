@@ -10,10 +10,10 @@ function AdminAPI(token) {
       const getAdmin = async () => {
         try {
           const res = await axios.get("/admin/refresh_token")
-          console.log("API",res);
+          console.log("API",res.data.adminDetails.role);
           
           setIsLogged(true);
-          res.data.role === "admin" ? setIsAdmin(true) : setIsAdmin(false)
+          res.data.adminDetails.role === "admin" ? setIsAdmin(true) : setIsAdmin(false)
           
         } catch (err) {
           Swal.fire({

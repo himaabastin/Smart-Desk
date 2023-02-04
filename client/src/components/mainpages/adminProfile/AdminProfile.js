@@ -35,33 +35,26 @@ const AdminProfile = () => {
 
     return (
       <div className="main">
+        <div className="container emp">
         <div className="profile-container">
-          <div className="pro-container">
-            <img
-              src={adminDetails.avatar}
-              alt="Profile Picture"
-              class="profile-pic"
-            />
-          </div>
-          <h1 className="username">{adminDetails.name}</h1>
-          <p className="bio">{adminDetails.role}</p>
-          <ul className="details">
-            <li>
-              <strong>Email :</strong>
-              {adminDetails.email}
-            </li>
-            <li>
-              <strong>Mobile :</strong> {adminDetails.mobile}
-            </li>
-          </ul>
+  <img src={adminDetails.avatar} alt="Profile Picture"/>
+  
+  <h1><i>{adminDetails.name}</i></h1>
+  <h3>({adminDetails.role})</h3>
+  
+  <p>{adminDetails.email}</p>
+  <p>{adminDetails.mobile}</p>
+</div>
         </div>
+        <button className="Button-style">Change Profile Pic</button>
       </div>
     );
   }
   return (
     <>
-      {isAdmin}
-      {isLogged ? LoggedRouter() : NotFound()}
+    
+      {isAdmin && isLogged ? LoggedRouter() : NotFound()}
+
     </>
   );
 };

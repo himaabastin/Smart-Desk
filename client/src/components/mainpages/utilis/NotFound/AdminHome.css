@@ -5,3 +5,8 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.heading1{
+    margin-left: 20rem;
+    text-decoration: underline;
+}

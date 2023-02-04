@@ -65,7 +65,7 @@ header ul li:hover{
   .logout-button:hover{
     background:#0ea3d9;
     border-radius: 5px;
-    transition: 1s;
+    transition: 0.5s;
   }
   
   

@@ -6,6 +6,8 @@ import AdminRegister from "./auth/AdminRegister";
 import NotFound from "./utilis/NotFound/NotFound";
 import { GlobalState } from "../../GlobalState";
 import AdminProfile from "./adminProfile/AdminProfile";
+import StudentManagement from "./StudentManagement/StudentManagement";
+import StudentRegister from "./StudentRegister/StudentRegister";
 
 const Pages = () => {
   const state=useContext(GlobalState)
@@ -16,6 +18,10 @@ const Pages = () => {
       <Route exact path="/adminLogin" element={isLogged?<NotFound/> : <AdminLogin/>} />
       <Route exact path="/adminRegister" element={isLogged ? <NotFound/> : <AdminRegister/>} />
       <Route exact path="/adminProfile" element={<AdminProfile/>} />
+      <Route exact path="/studentManagement" element={isLogged? <StudentManagement/>:<NotFound/>} />
+      <Route exact path="/studentRegister" element={isLogged? <StudentRegister/>:<NotFound/>} />
+
+
 
 
       <Route  path="*" element={<NotFound/>} />

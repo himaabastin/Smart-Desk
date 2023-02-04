@@ -42,6 +42,9 @@
       height: auto;
       position: relative;
     }
+    .side-menu center img{
+      display: none;
+    }
     .sidemenu h5 {float: left;}
     .side-menu center h4{
        display: none;

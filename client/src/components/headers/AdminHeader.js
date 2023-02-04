@@ -32,8 +32,8 @@ const AdminHeader = () => {
       </div>
 
       <ul>
-        {isAdmin}
-        {isLogged && (
+     
+        {isAdmin && isLogged && (
           <>
             {/* <li style={{color:"#ffff"}}>ADMIN </li> */}
             <li style={{ color: "#ffff" }}>

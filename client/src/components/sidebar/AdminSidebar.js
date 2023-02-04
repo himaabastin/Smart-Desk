@@ -38,11 +38,11 @@ function AdminSidebar() {
     return (
 
       <div className="sidebar">
-        {isLogged &&  <div className="side-menu">
+        {isAdmin && isLogged &&  <div className="side-menu">
           <center>
             <img src={adminDetails.avatar} />
             <br />
-            <h4>{adminDetails.name}</h4>
+            <h4><i>{adminDetails.name}</i></h4>
           </center>
           <br />
           <h5>

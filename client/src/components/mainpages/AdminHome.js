@@ -10,7 +10,7 @@ const [isAdmin,setIsAdmin]=state.adminAPI.isAdmin
 
 function LoggedRouter(){
   return <div className="data">
-  
+  <h1 className="heading1">SMART DESK -ADMIN</h1>
   </div>;
 }
 return(
