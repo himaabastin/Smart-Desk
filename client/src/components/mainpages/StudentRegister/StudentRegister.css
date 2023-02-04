@@ -80,6 +80,7 @@ h2 {
 @media(max-width:600px){
     .Container{
         min-width:600px;
+      
     }
     .content{
         max-width: 380px;
@@ -90,6 +91,9 @@ h2 {
         width: 100%;
         justify-content: space-between;
     }
-
+    .button-container button{
+        margin-left: 10px;
+        width: 60%;
+    }
  
 }

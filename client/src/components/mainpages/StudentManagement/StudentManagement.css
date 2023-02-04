@@ -1,9 +1,22 @@
 .add-std-btn {
   background: rgb(12, 182, 12);
   color: #fff;
-  padding: 0 10px 0 10px;
+
   border-style: none;
   border-radius: 3px;
-  margin: 25px  0 0 800px;
-
+  margin: 85px 10px 0 800px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5em 1em;
+}
+@media (max-width: 600px) {
+  .add-std-btn {
+    position: fixed;
+    right: 1em;
+    bottom: 1em ;
+    margin-bottom: 600px;
+    padding: 0 50px 15px ;
+    font-size:small;
+  }
 }
