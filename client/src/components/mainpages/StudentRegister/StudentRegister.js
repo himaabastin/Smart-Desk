@@ -25,8 +25,8 @@ const StudentRegister = () => {
             </div>
 
             <div className='input-box'>
-                <label htmlFor='class'>Class</label>
-                <input type="number" placeholder='Enter class' name='class' required/>
+                <label htmlFor='grade'>Grade</label>
+                <input type="number" placeholder='Enter grade/class' name='grade' required/>
             </div>
 
             <div className='input-box'>

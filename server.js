@@ -14,7 +14,10 @@ app.use(fileUpload({
     useTempFiles:true
 }))
 //Routes
+//adminroute
 app.use('/admin',require('./routes/adminRouter'))
+//studentroute
+// app.use('/student',require("./routes/studentRouter"))
 
 //connect to mongodb
 const URI=process.env.MONGODB_URL
