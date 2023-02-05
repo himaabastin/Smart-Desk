@@ -10,7 +10,7 @@ function StudentManagement() {
   const allStudentDetails = async (e) => {
     try {
       let allstds = await axios.get("/admin/allStudentDetails");
-      console.log(allstds.data.allStudentDetails);
+      // console.log(allstds.data.allStudentDetails);
       setAllStudents(allstds.data.allStudentDetails);
     } catch (err) {
       Swal.fire({
@@ -24,12 +24,45 @@ function StudentManagement() {
     allStudentDetails();
   }, []);
 
+
   return (
     <div style={{ marginLeft: "250px" }}>
+      <div>
+
+      
       <Link to="/studentRegister">
         <button className="add-std-btn"> Add a student</button>
       </Link>
-      {/*studentdetails array map cheyanm enituu ath table akaanm !!!!!  */}
+      </div>
+
+      <div className="students">
+        {
+          allStudents.map((student)=>{
+            return (
+              <div className='student_card'>
+              <img src={student.avatar} alt=''/>
+              <div className='student_box'>
+                 <h2 title={student.name} style={{color:"black"}}> {student.name}</h2>
+                 <span>Class: {student.grade}</span>
+                 <p>Email: {student.email}</p>
+                 <p>Mobile: {student.mobile}</p>
+                 <p>DOB: {student.dob}</p>
+                 <p>BloodGroup: {student.bloodgroup}</p>
+                 <p>Address: {student.address}</p>
+                 <div className="row_btn">
+        <button  style={{background:"#243f8a"}}>Edit</button>
+        <button style={{background:"#cf1928"}}>Block</button>
+      </div>
+         
+              </div>
+             </div>
+            )
+          })
+        }
+
+      </div>
+  
+
     </div>
   );
 }
