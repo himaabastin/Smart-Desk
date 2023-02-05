@@ -20,7 +20,7 @@ const studentCtrl = {
         return res
           .status(400)
           .json({ msg: "Mobile number should have 10 digits" });
-
+        if(grade === "") return res.status(400).json({msg:"Grade is mandatory"})
       if (password.length < 6)
         return res
           .status(400)
@@ -62,7 +62,15 @@ const studentCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-};
+  allStudentDetails:async(req,res)=>{
+    try {
+      const allStudentDetails=await Students.find().select("-password")
+      res.json({allStudentDetails})
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  }
+}
 
 const createAccessToken=(student)=>{
     return jwt.sign(student,process.env.ACCESS_TOKEN_SECRET,{

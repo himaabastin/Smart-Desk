@@ -12,5 +12,6 @@ router.get("/refresh_token", adminCtrl.refreshToken);
 router.get('/adminInfo',adminAuth,adminCtrl.getAdmin)
 //
 router.post("/studentRegister",studentCtrl.studentRegister)
+router.get("/allStudentDetails",studentCtrl.allStudentDetails)
 
 module.exports = router;
