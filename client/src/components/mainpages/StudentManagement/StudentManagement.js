@@ -24,45 +24,39 @@ function StudentManagement() {
     allStudentDetails();
   }, []);
 
-
   return (
     <div style={{ marginLeft: "250px" }}>
       <div>
-
-      
-      <Link to="/studentRegister">
-        <button className="add-std-btn"> Add a student</button>
-      </Link>
+        <Link to="/studentRegister">
+          <button className="add-std-btn"> Add a student</button>
+        </Link>
       </div>
 
       <div className="students">
-        {
-          allStudents.map((student)=>{
-            return (
-              <div className='student_card'>
-              <img src={student.avatar} alt=''/>
-              <div className='student_box'>
-                 <h2 title={student.name} style={{color:"black"}}> {student.name}</h2>
-                 <span>Class: {student.grade}</span>
-                 <p>Email: {student.email}</p>
-                 <p>Mobile: {student.mobile}</p>
-                 <p>DOB: {student.dob}</p>
-                 <p>BloodGroup: {student.bloodgroup}</p>
-                 <p>Address: {student.address}</p>
-                 <div className="row_btn">
-        <button  style={{background:"#243f8a"}}>Edit</button>
-        <button style={{background:"#cf1928"}}>Block</button>
-      </div>
-         
+        {allStudents.map((student) => {
+          return (
+            <div className="student_card" key={student._id}>
+              <img src={student.avatar} alt="" />
+              <div className="student_box">
+                <h2 title={student.name} style={{ color: "black" }}>
+                  {" "}
+                  {student.name}
+                </h2>
+                <span>Class: {student.grade}</span>
+                <p>Email: {student.email}</p>
+                <p>Mobile: {student.mobile}</p>
+                <p>DOB: {student.dob}</p>
+                <p>BloodGroup: {student.bloodgroup}</p>
+                <p>Address: {student.address}</p>
+                <div className="row_btn">
+                  <button style={{ background: "#243f8a" }}>Edit</button>
+                  <button style={{ background: "#cf1928" }}>Block</button>
+                </div>
               </div>
-             </div>
-            )
-          })
-        }
-
+            </div>
+          );
+        })}
       </div>
-  
-
     </div>
   );
 }

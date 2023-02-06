@@ -8,11 +8,14 @@ import { GlobalState } from "../../GlobalState";
 import AdminProfile from "./adminProfile/AdminProfile";
 import StudentManagement from "./StudentManagement/StudentManagement";
 import StudentRegister from "./StudentRegister/StudentRegister";
+import StudentLogin from "./studentlogin/StudentLogin"
+import StudentHome from "./utilis/StudentHome";
 
 const Pages = () => {
   const state=useContext(GlobalState)
   const [isLogged]=state.adminAPI.isLogged
   const [isAdmin]=state.adminAPI.isAdmin
+  const [isStudent]=state.studentAPI.isStudent
   return (
     <Routes>
       <Route exact path="/adminHome" element={<AdminHome/>} />
@@ -21,6 +24,9 @@ const Pages = () => {
       <Route exact path="/adminProfile" element={<AdminProfile/>} />
       <Route exact path="/studentManagement" element={isAdmin && isLogged? <StudentManagement/>:<NotFound/>} />
       <Route exact path="/studentRegister" element={isAdmin && isLogged? <StudentRegister/>:<NotFound/>} />
+      <Route exact path="/studentLogin" element={isStudent && isLogged?<NotFound/> : <StudentLogin/>} />
+      <Route exact path="/studentHome" element={<StudentHome/>} />
+
 
 
 

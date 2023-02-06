@@ -10,7 +10,7 @@ router.get("/adminLogout", adminCtrl.adminLogout);
 
 router.get("/refresh_token", adminCtrl.refreshToken);
 router.get('/adminInfo',adminAuth,adminCtrl.getAdmin)
-//
+//student
 router.post("/studentRegister",studentCtrl.studentRegister)
 router.get("/allStudentDetails",studentCtrl.allStudentDetails)
 

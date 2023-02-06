@@ -1,0 +1,13 @@
+.data{
+    background: url(https://t4.ftcdn.net/jpg/02/85/61/81/360_F_285618134_S1Yory1qw4EnAvGpvabIb697NjWlNGFg.jpg);
+    height: 100vh;
+    margin-left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.heading1{
+    color:#f5f4e2;
+    margin-left: 20rem;
+    text-decoration: underline;
+}

@@ -19,12 +19,13 @@ const adminCtrl = {
 
       //password encryption
       const passwordHash = await bcrypt.hash(password, 12);
+      
       const newAdmin = new Admins({
         name,
         password: passwordHash,
         email,
       });
-      console.log(newAdmin);
+      res.json(newAdmin)
       await newAdmin.save();
       //save to mongodb
 

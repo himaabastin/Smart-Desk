@@ -1,6 +1,7 @@
 import React, {createContext,useEffect,useState } from "react";
 import axios from "axios";
 import AdminAPI from "./api/AdminAPI";
+import StudentAPI from "./api/StudentAPI";
 
 export const GlobalState = createContext()
 export const DataProvider=({children})=>{
@@ -11,16 +12,30 @@ export const DataProvider=({children})=>{
         
         setToken(res.data.accesstoken)
     }
+
+    const studentRefreshToken=async ()=>{
+        const res=await axios.get("/student/refresh_token")
+        setToken(res.data.accesstoken)
+    }
    
     useEffect(()=>{
         const firstLogin=localStorage.getItem('firstLogin')
-        if(firstLogin)
-         refreshToken()
+        const studentLogin=localStorage.getItem('studentLogin')
+        if(firstLogin){
+            refreshToken()
+
+        }
+         if(studentLogin){
+            studentRefreshToken()
+
+         }
     },[])
+   
 
     const state={
         token:[token,setToken],
-        adminAPI:AdminAPI(token)
+        adminAPI:AdminAPI(token),
+        studentAPI:StudentAPI(token)
     }
 
     // console.log("sample state",state);

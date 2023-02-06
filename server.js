@@ -17,7 +17,7 @@ app.use(fileUpload({
 //adminroute
 app.use('/admin',require('./routes/adminRouter'))
 //studentroute
-// app.use('/student',require("./routes/studentRouter"))
+app.use('/student',require("./routes/studentRouter"))
 
 //connect to mongodb
 const URI=process.env.MONGODB_URL

@@ -15,9 +15,9 @@ function LoggedRouter(){
 }
 return(
   <>
-  {isAdmin}
+  
   {
-    isLogged ? LoggedRouter():NotFound()
+   isAdmin && isLogged ? LoggedRouter():NotFound()
   }
   </>
 )
