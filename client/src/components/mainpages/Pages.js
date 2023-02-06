@@ -12,23 +12,35 @@ import StudentLogin from "./studentlogin/StudentLogin"
 import StudentHome from "./utilis/StudentHome";
 import TeacherRegister from "./TeacherRegister/TeacherRegister";
 import TeacherManagement from "./TeacherManagement/TeacherManagement";
+import TeacherHome from "./utilis/TeacherHome";
+import TeacherLogin from "./TeacherLogin/TeacherLogin";
+import Home from "../Home";
 const Pages = () => {
   const state=useContext(GlobalState)
   const [isLogged]=state.adminAPI.isLogged
   const [isAdmin]=state.adminAPI.isAdmin
   const [isStudent]=state.studentAPI.isStudent
+  const [isStdLogged]=state.studentAPI.isStdLogged
+  const [isTeacher] =state.teacherAPI.isTeacher
+  const [isTchrLogged]=state.teacherAPI.isTchrLogged
+
+  console.log("Pages",state);
   return (
     <Routes>
+      <Route exact path="/" element={<Home/>}/>
       <Route exact path="/adminHome" element={<AdminHome/>} />
+      <Route exact path="/teacherHome" element={<TeacherHome/>} />
+      <Route exact path="/studentHome" element={<StudentHome/>} />
       <Route exact path="/adminLogin" element={isLogged?<NotFound/> : <AdminLogin/>} />
       <Route exact path="/adminRegister" element={isLogged ? <NotFound/> : <AdminRegister/>} />
       <Route exact path="/adminProfile" element={<AdminProfile/>} />
       <Route exact path="/studentManagement" element={isAdmin && isLogged? <StudentManagement/>:<NotFound/>} />
       <Route exact path="/studentRegister" element={isAdmin && isLogged? <StudentRegister/>:<NotFound/>} />
       <Route exact path="/studentLogin" element={isStudent ?<NotFound/> : <StudentLogin/>} />
-      <Route exact path="/studentHome" element={<StudentHome/>} />
       <Route exact path="/teacherRegister" element={<TeacherRegister/>} />
       <Route exact path="/teacherManagement" element={isAdmin && isLogged? <TeacherManagement/>:<NotFound/>} />
+      <Route exact path="/teacherLogin" element={isTchrLogged?<NotFound/> : <TeacherLogin/>} />
+
 
      
 

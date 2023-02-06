@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Header() {
+function Home() {
   return (
     <div>
-      
+      <h1>Home Page</h1>
     </div>
   )
 }
 
-export default Header
+export default Home

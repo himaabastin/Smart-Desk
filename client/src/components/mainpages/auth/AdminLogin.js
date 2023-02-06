@@ -31,7 +31,7 @@ const AdminLogin = () => {
     
 
   return (
-    <body className="body">
+    <div className="body">
  <div className="box">
       <form className="form" onSubmit={loginSubmit}>
       <h2>Admin Login</h2>
@@ -62,7 +62,7 @@ const AdminLogin = () => {
         </div>
       </form>
     </div>
-    </body>
+    </div>
    
   );
 };

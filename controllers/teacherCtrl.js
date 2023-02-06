@@ -81,6 +81,40 @@ const teacherCtrl={
         } catch (err) {
           return res.status(500).json({ msg: err.message });
         }
+      },
+      teacherLogin:async(req,res)=>{
+        try {
+          const { email, password } = req.body;
+          if (email === "" || password === "")
+            return res.status(400).json({ msg: "All fields should be filled" });
+    
+          const teacher = await Teachers.findOne({ email });
+          if (!teacher) return res.status(400).json({ msg: "Teacher doesn't exist" });
+          // res.json({password,student});
+          const isMatch = await bcrypt.compare(password, teacher.password);
+          if (!isMatch) return res.status(400).json({ msg: "Incorrect password" });
+    
+          //if login success create access token and refresh token
+          const access_token = createAccessToken({ id: teacher._id });
+          const refresh_token = createRefreshToken({ id: teacher._id });
+          res.cookie("refreshtoken", refresh_token, {
+            httpOnly: true,
+            path: "/teacher/refresh_token",
+            maxAge: 30 * 24 * 60 * 60 * 1000, //30days
+          });
+    
+          res.json({ access_token });
+        } catch (err) {
+          return res.status(500).json({ msg: err.message });
+        }
+      },
+      teacherLogout:async(req,res)=>{
+        try {
+          res.clearCookie("refreshtoken",{path:"/teacher/refresh_token"})
+          return res.json({msg:"Teacher Logged out"})
+        } catch (err) {
+          return res.status(500).json({ msg: err.message });
+        }
       }
 }
 const createAccessToken = (teacher) => {

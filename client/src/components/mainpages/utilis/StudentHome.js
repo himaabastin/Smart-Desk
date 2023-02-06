@@ -5,7 +5,7 @@ import NotFound from "../utilis/NotFound/NotFound";
 const StudentHome = () => {
   const state=useContext(GlobalState)
   // console.log("globalstate",state);
-const [isLogged,setIsLogged]=state.studentAPI.isLogged
+const [isStdLogged,setIsStdLogged]=state.studentAPI.isStdLogged
 const [isStudent,setIsStudent]=state.studentAPI.isStudent
 
 function LoggedRouter(){
@@ -17,7 +17,7 @@ return(
   <>
  
   {
-    isStudent&&isLogged ? LoggedRouter():NotFound()
+    isStudent&&isStdLogged ? LoggedRouter():NotFound()
   }
   </>
 )

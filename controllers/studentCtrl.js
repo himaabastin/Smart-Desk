@@ -100,7 +100,7 @@ const studentCtrl = {
   studentLogout:async(req,res)=>{
     try {
       res.clearCookie("refreshtoken",{path:"/student/refresh_token"})
-      return res.json({msg:"Logged out"})
+      return res.json({msg:"Studen Logged out"})
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

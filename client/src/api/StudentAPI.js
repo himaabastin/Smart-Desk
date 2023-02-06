@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 function StudentAPI(token) {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isStdLogged, setIsStdLogged] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
 
   useEffect(() => {
@@ -11,12 +11,13 @@ function StudentAPI(token) {
       const getStudent = async () => {
         try {
           const res = await axios.get("/student/refresh_token")
-          console.log("API",res.data.studentDetails.role);
+          console.log("stdAPI",res.data.studentDetails.role);
           
-          setIsLogged(true);
+          setIsStdLogged(true);
           res.data.studentDetails.role === "student" ? setIsStudent(true) : setIsStudent(false)
           
         } catch (err) {
+          console.log("stdapi",err);
           Swal.fire({
               text:err.response.data.msg,
           })
@@ -28,7 +29,7 @@ function StudentAPI(token) {
   }, [token]);
 
   return {
-    isLogged: [isLogged, setIsLogged],
+    isStdLogged: [isStdLogged, setIsStdLogged],
     isStudent:[isStudent,setIsStudent]
   };
 }

@@ -1,4 +1,4 @@
-header{
+.adminHeader{
     background-color: #0a3c4e;
     min-height: 70px;
     width:100% ;
@@ -10,18 +10,18 @@ header{
     align-items: center;
     border-bottom: 1px solid #ddd;
 }
-header.logo{
+.logo{
     flex:1
 }
-header a{
+.adminHeader a{
   
 text-decoration: none;  
   color: #fff;
 }
-header a :hover{
+.adminHeader a :hover{
     opacity: 1;
 }
-header ul li{
+.adminHeader ul li{
     display: inline-block;
     justify-content: space-between;
     background:#0a3c4e;
@@ -31,7 +31,7 @@ header ul li{
     background: #0a3c4e;
     opacity: 0,;
 }
-header ul li:hover{
+.adminHeader ul li:hover{
     opacity: 1;
 }
 
@@ -68,8 +68,150 @@ header ul li:hover{
     border-radius: 5px;
     transition: 0.5s;
   }
+
+  /* sudent header */
+  .stdHeader{
+    background-color: #1d1f1d;
+    min-height: 70px;
+    width:100% ;
+    
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+.stdlogo{
+    flex:1
+}
+.stdHeader a{
   
+text-decoration: none;  
+  color: #fff;
+}
+.stdHeader a :hover{
+    opacity: 1;
+}
+.stdHeader ul li{
+    display: inline-block;
+    justify-content: space-between;
+    background:#1d1f1d;
+    text-decoration: none;
+}
+.stdLOGO{
+    background: #1d1f1d;
+    opacity: 0,;
+}
+.stdHeader ul li:hover{
+    opacity: 1;
+}
+
+.stdNAMES{
+    text-decoration: none;
+    list-style: none;
+    border:none;
+    outline: none;
+    background:  #1d1f1d;
+    cursor: pointer;
+    color: rgb(240, 243, 243);
+  }
+  .stdmenu{
+    background: #1d1f1d;
+    cursor: pointer;
+    color: rgb(240, 243, 243);
+    display: none;
+  }
+  .stdlogout-button{
+    background: #3b7c9d;
+    border-style: none;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    margin-top: 10px;
+    margin-left: 100px;
+
+  }
+  .stdlogout-button:hover{
+    background:#2e98cd;
+    border-radius: 5px;
+    transition: 0.5s;
+  }
+  /* teacher header */
   
+  .tchrHeader{
+    background-color: #5c615c;
+    min-height: 70px;
+    width:100% ;
+    
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+.tchrlogo{
+    flex:1
+}
+.tchrHeader a{
+  
+text-decoration: none;  
+  color: #fff;
+}
+.tchrHeader a :hover{
+    opacity: 1;
+}
+.tchrHeader ul li{
+    display: inline-block;
+    justify-content: space-between;
+    background:#5c615c;
+    text-decoration: none;
+}
+.tchrLOGO{
+    background: #5c615c;
+    opacity: 0,;
+}
+.tchrHeader ul li:hover{
+    opacity: 1;
+}
+
+.tchrNAMES{
+    text-decoration: none;
+    list-style: none;
+    border:none;
+    outline: none;
+    background: #5c615c;
+    cursor: pointer;
+    color: rgb(240, 243, 243);
+  }
+  .tchrmenu{
+    background: #5c615c;
+    cursor: pointer;
+    color: rgb(240, 243, 243);
+    display: none;
+  }
+  .tchrlogout-button{
+    background: #85b28f;
+    border-style: none;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    margin-top: 10px;
+    margin-left: 100px;
+
+  }
+  .tchrlogout-button:hover{
+    background:#68b278;
+    border-radius: 5px;
+    transition: 0.5s;
+  }
   
  
 
