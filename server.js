@@ -19,6 +19,9 @@ app.use('/admin',require('./routes/adminRouter'))
 //studentroute
 app.use('/student',require("./routes/studentRouter"))
 
+app.use('/teacher',require("./routes/teacherRouter"))
+
+
 //connect to mongodb
 const URI=process.env.MONGODB_URL
 mongoose.connect(URI,err=>{

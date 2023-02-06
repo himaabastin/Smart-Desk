@@ -37,7 +37,7 @@ const StudentHeader = () => {
           <>
             {/* <li style={{color:"#ffff"}}>ADMIN </li> */}
             <li style={{ color: "#ffff" }}>
-              <Link to="/adminLogin" onClick={logoutAdmin}>
+              <Link to="/studentLogin" onClick={logoutAdmin}>
                 <button className="logout-button">Logout</button>
               </Link>
             </li>

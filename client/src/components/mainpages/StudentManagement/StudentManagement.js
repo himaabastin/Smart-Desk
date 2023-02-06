@@ -39,7 +39,7 @@ function StudentManagement() {
               <img src={student.avatar} alt="" />
               <div className="student_box">
                 <h2 title={student.name} style={{ color: "black" }}>
-                  {" "}
+                  
                   {student.name}
                 </h2>
                 <span>Class: {student.grade}</span>
