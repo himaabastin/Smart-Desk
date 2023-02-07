@@ -5,7 +5,9 @@ import { GlobalState } from "../../GlobalState";
 import Swal from "sweetalert2";
 import "./AdminSidebar.css";
 
-function AdminSidebar() {
+
+
+function Sidebar(){
   const state = useContext(GlobalState);
   // console.log("globalstate", state);
   const [isLogged, setIsLogged] = state.adminAPI.isLogged;
@@ -33,55 +35,67 @@ function AdminSidebar() {
         };
         GetAdmin()
       }, [])
-  
 
-    return (
+      return (
 
-      <div className="sidebar">
-        {isAdmin && isLogged &&  <div className="side-menu">
-          <center>
-            <img src={adminDetails.avatar} />
+        <div className="sidebar">
+          <div className="side-menu">
+            <center>
+              <img src={adminDetails.avatar} />
+              <br />
+              <h4><i>{adminDetails.name}</i></h4>
+            </center>
             <br />
-            <h4><i>{adminDetails.name}</i></h4>
-          </center>
-          <br />
-          <h5>
-            <Link className="menus" to="/adminProfile">
-              Profile
-            </Link>
-          </h5>
-          <h5>
-            <Link className="menus" to="/studentManagement">
-              Students
-            </Link>
-          </h5>
-          <h5>
-            <Link className="menus" to="/teacherManagement">
-              Teachers
-            </Link>
-          </h5>
-          <h5>
-            <Link className="menus" to="/paymentManagement">
-              Payments
-            </Link>
-          </h5>
-          <h5>
-            <Link className="menus" to="/storeManagement">
-              Store
-            </Link>
-          </h5>
-          <h5>
-            <Link className="menus" to="/adminMessages">
-              Messages
-            </Link>
-          </h5>
-
+            <h5>
+              <Link className="menus" to="/adminProfile">
+                Profile
+              </Link>
+            </h5>
+            <h5>
+              <Link className="menus" to="/studentManagement">
+                Students
+              </Link>
+            </h5>
+            <h5>
+              <Link className="menus" to="/teacherManagement">
+                Teachers
+              </Link>
+            </h5>
+            <h5>
+              <Link className="menus" to="/paymentManagement">
+                Payments
+              </Link>
+            </h5>
+            <h5>
+              <Link className="menus" to="/storeManagement">
+                Store
+              </Link>
+            </h5>
+            <h5>
+              <Link className="menus" to="/adminMessages">
+                Messages
+              </Link>
+            </h5>
+  
+            
+          </div>
           
-        </div>}
-        
-       
-      </div>
-    );
+         
+        </div>
+      );
+}
+function AdminSidebar() {
+  const state = useContext(GlobalState);
+  // console.log("globalstate", state);
+  const [isAdmin, setIsAdmin] = state.adminAPI.isAdmin;
+ return(
+  <>
+  {isAdmin?<Sidebar/>:""}
+  </>
+
+ )
+ 
+
   
 }
 

@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px ;
 }
 .logo{
     flex:1
@@ -80,7 +80,7 @@ text-decoration: none;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px;
 }
 .stdlogo{
     flex:1
@@ -152,7 +152,7 @@ text-decoration: none;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px ;
 }
 .tchrlogo{
     flex:1
@@ -166,11 +166,14 @@ text-decoration: none;
     opacity: 1;
 }
 .tchrHeader ul li{
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
     justify-content: space-between;
     background:#5c615c;
     text-decoration: none;
 }
+
 .tchrLOGO{
     background: #5c615c;
     opacity: 0,;
@@ -178,7 +181,10 @@ text-decoration: none;
 .tchrHeader ul li:hover{
     opacity: 1;
 }
-
+.tchrlogout-button{
+text-align: center;
+margin-bottom: 15px;
+}
 .tchrNAMES{
     text-decoration: none;
     list-style: none;
@@ -195,20 +201,20 @@ text-decoration: none;
     display: none;
   }
   .tchrlogout-button{
-    background: #85b28f;
+    background:#68b278 ;
     border-style: none;
     color: #fff;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 3px;
     padding-bottom: 3px;
-
+    margin-right:20px ;
     margin-top: 10px;
     margin-left: 100px;
 
   }
   .tchrlogout-button:hover{
-    background:#68b278;
+    background:#85b28f;
     border-radius: 5px;
     transition: 0.5s;
   }

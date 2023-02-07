@@ -61,6 +61,9 @@ function StudentHeader() {
         <img src={Menu} width="25" />
       </div>
       <div className="stdlogo">
+      <Link to="/studentProfile">
+          <p>Profile</p>
+        </Link>
         <Link to="/studentHome">
           <img src={Logo} width="70" className="stdLOGO" />
         </Link>
@@ -110,6 +113,10 @@ function TeacherHeader() {
           <>
             {/* <li style={{color:"#ffff"}}>ADMIN </li> */}
             <li style={{ color: "#ffff" }}>
+              <Link to="/teacherProfile">
+              <p className='tchrprofile'>Profile</p>
+              </Link>
+             
               <Link to="/teacherLogin" onClick={logoutTeacher}>
                 <button className="tchrlogout-button">TchrLogout</button>
               </Link>
@@ -121,20 +128,20 @@ function TeacherHeader() {
   );
 }
 
-function NormalHeader(){
-  return(
-    <header className='normalHeader'>
-    <div className="normalmenu">
- {/* <img src={Menu} width="25" /> */}
-</div>
-<div className="normallogo">
- <Link to="/">
-   <img src={Logo} width="70" className="normalLOGO" />
- </Link>
-</div>
-</header>
-  )
-}
+// function NormalHeader(){
+//   return(
+//     <header className='normalHeader'>
+//     <div className="normalmenu">
+//  {/* <img src={Menu} width="25" /> */}
+// </div>
+// <div className="normallogo">
+//  <Link to="/">
+//    <img src={Logo} width="70" className="normalLOGO" />
+//  </Link>
+// </div>
+// </header>
+//   )
+// }
 function Header() {
 
   const state = useContext(GlobalState);

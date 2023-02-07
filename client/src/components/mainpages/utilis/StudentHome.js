@@ -9,7 +9,7 @@ const [isStdLogged,setIsStdLogged]=state.studentAPI.isStdLogged
 const [isStudent,setIsStudent]=state.studentAPI.isStudent
 
 function LoggedRouter(){
-  return <div className="data">
+  return <div className="datastd">
   <h1 className="heading1">SMART DESK</h1>
   </div>;
 }

@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import { GlobalState } from "../../GlobalState";
-import './utilis/NotFound/AdminHome.css'
+import './utilis/AdminHome.css'
 import NotFound from "./utilis/NotFound/NotFound";
 const AdminHome = () => {
   const state=useContext(GlobalState)
