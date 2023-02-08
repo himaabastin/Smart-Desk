@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import './TeacherRegister.css'
 function TeacherRegister() {
-    const [teacher, setTeacher] = useState({ name:"",email: "", password: "" });
+    const [teacher, setTeacher] = useState({ teacherId:"",name:"",email: "", password: "" });
     const onChangeInput = (e) => {
       const { name, value } = e.target;
       // console.log(e.target.name, e.target.value, "tezt");
@@ -30,6 +30,16 @@ function TeacherRegister() {
         <form className="form" onSubmit={registerSubmit}>
         <h2>Teacher Register</h2>
         <div className="inputBox">
+
+        <input 
+            type="text"
+            name="teacherId"
+            onChange={onChangeInput}
+            placeholder="Teacher's Id"
+           
+          />
+           <span>Teacher's Id</span>
+          <i></i>
         <input 
             type="text"
             name="name"

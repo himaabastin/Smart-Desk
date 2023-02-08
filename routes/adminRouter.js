@@ -19,6 +19,7 @@ router.put("/adminStdUpdate/:stdAdNo",studentCtrl.adminStdUpdate)
 //teacher
 router.post("/teacherRegister",teacherCtrl.teacherRegister)
 router.get("/allTeacherDetails",teacherCtrl.allTeacherDetails)
+router.put("/adminTchrUpdate/:teacherId",teacherCtrl.adminTchrUpdate)
 
 
 module.exports = router;

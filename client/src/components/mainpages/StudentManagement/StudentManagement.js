@@ -37,7 +37,7 @@ console.log("stdId",id);
       <div className="students">
         {allStudents.map((student) => {
           return (
-            <div className="student_card" key={student._id}>
+            <div className="student_card" style={{height:"650px"}} key={student._id}>
               <img src={student.avatar} alt="" />
               <div className="student_box">
                 <h2 title={student.name} style={{ color: "black" }}>
@@ -53,11 +53,7 @@ console.log("stdId",id);
                 <p>Address: {student.address}</p>
                 <p style={{visibility:"hidden"}}>{student._id}</p>
                 <div className="row_btn">
-                  <Link to='/adminEditStd/:id'> 
-                  <button style={{ background: "#243f8a" }}>Edit</button>
-                  
-                  </Link>
-                  <a href={`/adminEditStd/${student.stdAdNo}`} style={{color:"red"}}>EDITTT</a>
+                  <a href={`/adminEditStd/${student.stdAdNo}`} style={{color:"blue"}}>EDIT</a>
                   <button style={{ background: "#cf1928" }}>Block</button>
                 </div>
               </div>

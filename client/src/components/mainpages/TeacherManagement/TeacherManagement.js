@@ -46,7 +46,7 @@ function TeacherManagement() {
                 <p>Mobile: {teacher.mobile}</p>
 
                 <div className="row_btn">
-                  <button style={{ background: "#243f8a" }}>Edit</button>
+                <a href={`/adminEditTchr/${teacher.teacherId}`} style={{color:"blue"}}>EDIT</a>
                   <button style={{ background: "#cf1928" }}>Block</button>
                 </div>
               </div>

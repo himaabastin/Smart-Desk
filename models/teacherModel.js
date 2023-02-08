@@ -1,6 +1,12 @@
 const mongoose=require('mongoose')
 
 const teacherSchema=new mongoose.Schema({
+    teacherId:{
+        type:String,
+        unique:true,
+        trim:true,
+        required:true
+       },
 name:{
     type:String,
     required:true,

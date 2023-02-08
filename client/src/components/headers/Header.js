@@ -61,9 +61,7 @@ function StudentHeader() {
         <img src={Menu} width="25" />
       </div>
       <div className="stdlogo">
-      <Link to="/studentProfile">
-          <p>Profile</p>
-        </Link>
+      
         <Link to="/studentHome">
           <img src={Logo} width="70" className="stdLOGO" />
         </Link>
@@ -75,6 +73,7 @@ function StudentHeader() {
           <>
             {/* <li style={{color:"#ffff"}}>ADMIN </li> */}
             <li style={{ color: "#ffff" }}>
+            
               <Link to="/studentLogin" onClick={logoutStudent}>
                 <button className="stdlogout-button">stdLogout</button>
               </Link>

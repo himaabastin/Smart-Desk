@@ -6,8 +6,8 @@ const jwt = require("jsonwebtoken");
 const teacherCtrl={
     teacherRegister: async (req, res) => {
         try {
-          const { name, email, password } = req.body;
-          if (name === "" || email === "" || password === "")
+          const { teacherId,name, email, password } = req.body;
+          if (teacherId==="" ||name === "" || email === "" || password === "")
             return res.status(400).json({ msg: "All fields should be filled" });
     
           const teacher = await Teachers.findOne({ email });
@@ -18,16 +18,17 @@ const teacherCtrl={
             return res
               .status(400)
               .json({ msg: "Password should be atleast 6 characters long" });
-    
+          
           //password encryption
           const passwordHash = await bcrypt.hash(password, 12);
           
           const newTeacher = new Teachers({
+            teacherId,
             name,
             password: passwordHash,
             email,
           });
-          res.json(newTeacher)
+          // res.json(newTeacher)
           await newTeacher.save();
           //save to mongodb
     
@@ -114,6 +115,19 @@ const teacherCtrl={
           return res.json({msg:"Teacher Logged out"})
         } catch (err) {
           return res.status(500).json({ msg: err.message });
+        }
+      },
+      adminTchrUpdate:async(req,res)=>{
+        try {
+          const{name,email,subject,grade,mobile}=req.body
+    
+          await Teachers.findOneAndUpdate({teacherId:req.params.teacherId},{
+            name,email,subject,grade,mobile,
+          })
+          res.json({msg:"teacher updated"})
+          
+        } catch (err) {
+          res.status(500).json({msg:err.message})
         }
       }
 }

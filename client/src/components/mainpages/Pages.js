@@ -16,6 +16,7 @@ import TeacherHome from "./utilis/TeacherHome";
 import TeacherLogin from "./TeacherLogin/TeacherLogin";
 import Home from "../Home";
 import AdminEditStd from "./AdminEditStd/AdminEditStd";
+import AdminEditTchr from "./AdminEditTchr/AdminEditTchr";
 import AdminProfileEdit from "./AdminProfileEdit/AdminProfileEdit";
 const Pages = () => {
   const state=useContext(GlobalState)
@@ -39,10 +40,12 @@ const Pages = () => {
       <Route exact path="/studentManagement" element={isAdmin && isLogged? <StudentManagement/>:<NotFound/>} />
       <Route exact path="/studentRegister" element={isAdmin && isLogged? <StudentRegister/>:<NotFound/>} />
       <Route exact path="/studentLogin" element={isStudent ?<NotFound/> : <StudentLogin/>} />
-      <Route exact path="/teacherRegister" element={<TeacherRegister/>} />
+      <Route exact path="/teacherRegister" element={isAdmin && isLogged?<TeacherRegister/>:<NotFound/>} />
       <Route exact path="/teacherManagement" element={isAdmin && isLogged? <TeacherManagement/>:<NotFound/>} />
       <Route exact path="/teacherLogin" element={isTchrLogged?<NotFound/> : <TeacherLogin/>} />
       <Route exact path="/adminEditStd/:id" element={isAdmin && isLogged? <AdminEditStd/>:<NotFound/>} />
+      <Route exact path="/adminEditTchr/:id" element={isAdmin && isLogged? <AdminEditTchr/>:<NotFound/>} />
+
       <Route exact path="/adminProfileEdit" element={isAdmin && isLogged? <AdminProfileEdit/>:<NotFound/>} />
 
 
