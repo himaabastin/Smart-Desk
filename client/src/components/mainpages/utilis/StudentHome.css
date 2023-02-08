@@ -73,14 +73,14 @@ h1 em {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 50px;
+ 
 }
 
 .boxForStd :first-child {
   align-self: center;
 }
 .boxForStd button {
-  width: calc(25% - 10px);
+  width: calc(33.3% - 10px);
   height: 100px;
   background-color: #5c615c;
   display: flex;
@@ -90,6 +90,7 @@ h1 em {
   padding: 20px 90px 20px 90px;
   border-radius: 10px;
   border-style: none;
+  
   color: rgb(209, 217, 207);
 }
 .firstRow{

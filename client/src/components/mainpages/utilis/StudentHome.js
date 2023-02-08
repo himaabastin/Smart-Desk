@@ -1,5 +1,6 @@
 import React,{useContext} from 'react'
 import { GlobalState } from '../../../GlobalState'
+import {Link} from 'react-router-dom'
 import NotFound from './NotFound/NotFound'
 import "./StudentHome.css"
 const StudentHome = () => {
@@ -33,19 +34,18 @@ function LoggedRouter(){
 
  
 <div className="boxForStd">
-  <div className='firstRow'>
+  <div className='firstRow' style={{marginLeft:"300px",marginTop:"30px"}}>
 
-  
-  <div><button className='ButtonStd'>Profile</button></div>
+  <div><Link to="/studentProfile"><button className='ButtonStd'>Profile</button></Link></div>
   <div><button className='ButtonStd'>Timetable</button></div>
   <div><button className='ButtonStd'>Marks</button></div>
   </div>
-  <div className='secondRow'>
+  <div className='secondRow' style={{marginLeft:"300px",marginTop:"30px"}}>
   <div><button  className='ButtonStd'>Teachers </button></div>
   <div><button  className='ButtonStd'>Store </button></div>
-  <div><button  className='ButtonStd'>Fee Payment </button></div>
-
+  <div><button  className='ButtonStd'>Fee </button></div>
   </div>
+ 
 </div>
 </div>     
 </div>

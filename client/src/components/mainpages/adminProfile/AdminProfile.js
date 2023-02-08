@@ -47,11 +47,6 @@ const AdminProfile = () => {
   <p>{adminDetails.mobile}</p>
 </div>
         </div>
-      <Link to="/adminProfileEdit">
-
-      <button className="Button-style">Change Profile Pic</button>
-
-      </Link>
       </div>
     );
   }
