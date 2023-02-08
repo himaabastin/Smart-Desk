@@ -4,6 +4,7 @@ import { GlobalState } from "../../../GlobalState";
 import NotFound from "../utilis/NotFound/NotFound";
 import Swal from "sweetalert2";
 import "./AdminProfile.css";
+import { Link } from "react-router-dom";
 
 const AdminProfile = () => {
   const state = useContext(GlobalState);
@@ -46,7 +47,11 @@ const AdminProfile = () => {
   <p>{adminDetails.mobile}</p>
 </div>
         </div>
-        <button className="Button-style">Change Profile Pic</button>
+      <Link to="/adminProfileEdit">
+
+      <button className="Button-style">Change Profile Pic</button>
+
+      </Link>
       </div>
     );
   }

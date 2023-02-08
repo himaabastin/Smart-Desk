@@ -135,6 +135,7 @@ const studentCtrl = {
         name,email,grade,bloodGroup,mobile,dob,address
       })
       res.json({msg:"Student updated"})
+      
     } catch (err) {
       res.status(500).json({msg:err.message})
     }

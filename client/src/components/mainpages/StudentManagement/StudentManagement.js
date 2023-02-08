@@ -53,10 +53,11 @@ console.log("stdId",id);
                 <p>Address: {student.address}</p>
                 <p style={{visibility:"hidden"}}>{student._id}</p>
                 <div className="row_btn">
-                  <Link to='/adminEditStd'> 
-                  <button style={{ background: "#243f8a" }}>View</button>
+                  <Link to='/adminEditStd/:id'> 
+                  <button style={{ background: "#243f8a" }}>Edit</button>
                   
                   </Link>
+                  <a href={`/adminEditStd/${student.stdAdNo}`} style={{color:"red"}}>EDITTT</a>
                   <button style={{ background: "#cf1928" }}>Block</button>
                 </div>
               </div>

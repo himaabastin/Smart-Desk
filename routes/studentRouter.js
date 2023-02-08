@@ -7,6 +7,6 @@ router.get("/refresh_token",studentCtrl.refreshToken)
 
 
 
-router.put("/adminStdUpdate/:stdAdNo",studentCtrl.adminStdUpdate)
+
 
 module.exports = router;
