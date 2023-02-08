@@ -23,7 +23,9 @@ function StudentManagement() {
   useEffect(() => {
     allStudentDetails();
   }, []);
-
+const studentId=(id)=>{
+console.log("stdId",id);
+}
   return (
     <div style={{ marginLeft: "250px" }}>
       <div>
@@ -43,13 +45,18 @@ function StudentManagement() {
                   {student.name}
                 </h2>
                 <span>Class: {student.grade}</span>
+               
                 <p>Email: {student.email}</p>
                 <p>Mobile: {student.mobile}</p>
                 <p>DOB: {student.dob}</p>
                 <p>BloodGroup: {student.bloodgroup}</p>
                 <p>Address: {student.address}</p>
+                <p style={{visibility:"hidden"}}>{student._id}</p>
                 <div className="row_btn">
-                  <button style={{ background: "#243f8a" }}>Edit</button>
+                  <Link to='/adminEditStd'> 
+                  <button style={{ background: "#243f8a" }}>View</button>
+                  
+                  </Link>
                   <button style={{ background: "#cf1928" }}>Block</button>
                 </div>
               </div>

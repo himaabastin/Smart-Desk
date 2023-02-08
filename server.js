@@ -21,6 +21,8 @@ app.use('/student',require("./routes/studentRouter"))
 
 app.use('/teacher',require("./routes/teacherRouter"))
 
+app.use('/api',require("./routes/upload"))
+
 
 //connect to mongodb
 const URI=process.env.MONGODB_URL

@@ -5,9 +5,9 @@ const jwt = require("jsonwebtoken");
 const studentCtrl = {
   studentRegister: async (req, res) => {
     try {
-      const { name, email, mobile, grade, password } = req.body;
+      const { stdAdNo,name, email, mobile, grade, password } = req.body;
       if (
-        (name === "" || email === "" || mobile === "" || grade === "",
+        (stdAdNo===""||name === "" || email === "" || mobile === "" || grade === "",
         password === "")
       )
         return res.status(400).json({ msg: "All fields are mandatory" });
@@ -31,6 +31,7 @@ const studentCtrl = {
       const passwordHash = await bcrypt.hash(password, 12);
 
       const newStudent = new Students({
+        stdAdNo,
         name,
         password: passwordHash,
         email,
@@ -124,6 +125,18 @@ const studentCtrl = {
     
     } catch (err) {
       return res.status(500).json({ msg: err.message });
+    }
+  },
+  adminStdUpdate:async(req,res)=>{
+    try {
+      const{name,email,grade,bloodGroup,mobile,dob,address}=req.body
+
+      await Students.findOneAndUpdate({stdAdNo:req.params.stdAdNo},{
+        name,email,grade,bloodGroup,mobile,dob,address
+      })
+      res.json({msg:"Student updated"})
+    } catch (err) {
+      res.status(500).json({msg:err.message})
     }
   }
 };

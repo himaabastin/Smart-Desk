@@ -1,6 +1,12 @@
 const mongoose=require('mongoose')
 
 const studentSchema=new mongoose.Schema({
+   stdAdNo:{
+    type:String,
+    unique:true,
+    trim:true,
+    required:true
+   },
     name:{
         type:String,
         required:true,
@@ -29,7 +35,7 @@ const studentSchema=new mongoose.Schema({
         type:String
     },
     address:{
-        type:Array
+        type:String
     },
     role:{
         type:String,

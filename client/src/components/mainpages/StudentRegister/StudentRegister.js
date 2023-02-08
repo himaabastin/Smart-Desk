@@ -5,6 +5,7 @@ import "./StudentRegister.css";
 
 const StudentRegister = () => {
   const [student, setStudent] = useState({
+    stdAdNo:"",
     name: "",
     email: "",
     mobile: "",
@@ -37,6 +38,15 @@ const StudentRegister = () => {
         <form onSubmit={registerSubmit}>
           <h2>Student Registration</h2>
           <div className="content">
+          <div className="input-box">
+              <label htmlFor="stdAdNo">Admission Number</label>
+              <input
+                type="text"
+                placeholder="stdAdNo"
+                name="stdAdNo"
+                onChange={onChangeInput}
+              />
+            </div>
             <div className="input-box">
               <label htmlFor="name">Full Name</label>
               <input

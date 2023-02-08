@@ -128,20 +128,20 @@ function TeacherHeader() {
   );
 }
 
-// function NormalHeader(){
-//   return(
-//     <header className='normalHeader'>
-//     <div className="normalmenu">
-//  {/* <img src={Menu} width="25" /> */}
-// </div>
-// <div className="normallogo">
-//  <Link to="/">
-//    <img src={Logo} width="70" className="normalLOGO" />
-//  </Link>
-// </div>
-// </header>
-//   )
-// }
+function NormalHeader(){
+  return(
+    <header className='normalHeader'>
+    <div className="normalmenu">
+ {/* <img src={Menu} width="25" /> */}
+</div>
+<div className="normallogo">
+ <Link to="/">
+   <img src={Logo} width="70" className="normalLOGO" />
+ </Link>
+</div>
+</header>
+  )
+}
 function Header() {
 
   const state = useContext(GlobalState);
@@ -158,7 +158,7 @@ function Header() {
     <div>
       {isStudent?<StudentHeader/> :
       isAdmin?<AdminHeader/>:
-      isTeacher?<TeacherHeader/>:""}
+      isTeacher?<TeacherHeader/>:<NormalHeader/>  }
     </div>
   )
 }
