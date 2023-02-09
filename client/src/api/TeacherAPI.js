@@ -16,9 +16,10 @@ function TeacherAPI(token){
                 res.data.teacherDetails.role === "teacher" ?setIsTeacher(true) :setIsTeacher(false)
             } catch (err) {
                 console.log("tchrapi",err);
-                Swal.fire({
-                    text:err.response.data.msg,
-                })
+                console.log(err.response.data.msg);
+                // Swal.fire({
+                //     text:err.response.data.msg,
+                // })
             }
          }
          getTeacher()

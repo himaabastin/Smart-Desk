@@ -23,10 +23,10 @@ function StudentProfile() {
           } catch (err) {
             console.log(err.response.data.msg, "error");
     
-            Swal.fire({
-              text: err.response.data.msg,
-              confirmButtonColor: "#b8121b",
-            });
+            // Swal.fire({
+            //   text: err.response.data.msg,
+            //   confirmButtonColor: "#b8121b",
+            // });
           }
         };
     

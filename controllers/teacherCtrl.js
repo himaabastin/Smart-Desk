@@ -34,22 +34,22 @@ const teacherCtrl={
     
           //Then jsonwebtoken for authentication
     
-          const access_token = createAccessToken({ id: newTeacher._id });
-          const refresh_token = createRefreshToken({ id: newTeacher._id });
-          res
-            .cookie("refreshtoken", refresh_token, {
-              httpOnly: true,
-              path: "/teacher/refresh_token",
-              maxAge: 30 * 24 * 60 * 60 * 1000, //30days
-            })
-            .json({
-              msg: "Registered Successfully",
-              access_token,
-              teacher: {
-                ...newTeacher._doc,
-                password: "",
-              },
-            });
+          // const access_token = createAccessToken({ id: newTeacher._id });
+          // const refresh_token = createRefreshToken({ id: newTeacher._id });
+          // res
+          //   .cookie("refreshtoken", refresh_token, {
+          //     httpOnly: true,
+          //     path: "/teacher/refresh_token",
+          //     maxAge: 30 * 24 * 60 * 60 * 1000, //30days
+          //   })
+          //   .json({
+          //     msg: "Registered Successfully",
+          //     access_token,
+          //     teacher: {
+          //       ...newTeacher._doc,
+          //       password: "",
+          //     },
+          //   });
         } catch (err) {
           return res.status(500).json({ msg: err.message });
         }

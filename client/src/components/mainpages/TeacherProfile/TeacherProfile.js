@@ -9,7 +9,7 @@ import "./TeacherProfile.css"
 
 function TeacherProfile() {
     const state = useContext(GlobalState);
-    const [isTchrLogged, setIsTchrLogged] = state.teacherAPI.isTeacherLogged;
+    const [isTchrLogged, setIsTchrLogged] = state.teacherAPI.isTchrLogged;
     const [isTeacher, setIsTeacher] = state.teacherAPI.isTeacher;
     const [teacherDetails, setteacherDetails] = useState({});
 
@@ -23,10 +23,10 @@ function TeacherProfile() {
           } catch (err) {
             console.log(err.response.data.msg, "error");
     
-            Swal.fire({
-              text: err.response.data.msg,
-              confirmButtonColor: "#b8121b",
-            });
+            // Swal.fire({
+            //   text: err.response.data.msg,
+            //   confirmButtonColor: "#b8121b",
+            // });
           }
         };
     
@@ -39,7 +39,7 @@ function TeacherProfile() {
       <img src={teacherDetails.avatar} alt="teacher"/>
     </div>
     <div class="teacher-info">
-      <h2>teacher Information</h2>
+      <h2>Teacher Information</h2>
       <p>Name: {teacherDetails.name}</p>
       <p>Incharge:{teacherDetails.grade}</p>
       <p>Subject:{teacherDetails.subject}</p>

@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 import './TeacherRegister.css'
+
 function TeacherRegister() {
     const [teacher, setTeacher] = useState({ teacherId:"",name:"",email: "", password: "" });
     const onChangeInput = (e) => {
@@ -9,12 +11,12 @@ function TeacherRegister() {
       // console.log(e.target.name, e.target.value, "tezt");
       setTeacher({ ...teacher, [name]: value });
     };
+    const navigate=useNavigate()
     const registerSubmit = async (e) => {
       e.preventDefault();
       try {
         await axios.post("/admin/teacherRegister", { ...teacher });
-        localStorage.setItem("teacherLogin", true);
-        window.location.href = "/teacherManagement";
+        navigate("/teacherManagement")
       } catch (err) {
         // console.log(err.response.data.msg, "error");
         Swal.fire( {

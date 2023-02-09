@@ -56,7 +56,7 @@ return(
   <>
  
   {
-    isStudent&&isStdLogged ? LoggedRouter():NotFound()
+    isStudent&&isStdLogged ? LoggedRouter():""
   }
   </>
 )

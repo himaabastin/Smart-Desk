@@ -34,6 +34,12 @@ function AdminHeader() {
           <>
             {/* <li style={{color:"#ffff"}}>ADMIN </li> */}
             <li style={{ color: "#ffff" }}>
+            <Link to="/adminProfile">
+                <button  className="logout-button">Profile</button>
+              </Link>
+              <Link to="/adminMessages">
+                <button className="logout-button">Messsages</button>
+              </Link>
               <Link to="/adminLogin" onClick={logoutAdmin}>
                 <button className="logout-button">adminLogout</button>
               </Link>

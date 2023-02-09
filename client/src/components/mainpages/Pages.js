@@ -39,14 +39,14 @@ const Pages = () => {
       <Route exact path="/adminLogin" element={isLogged?<NotFound/> : <AdminLogin/>} />
       <Route exact path="/adminRegister" element={isLogged ? <NotFound/> : <AdminRegister/>} />
       <Route exact path="/adminProfile" element={<AdminProfile/>} />
-      <Route exact path="/studentManagement" element={isAdmin && isLogged? <StudentManagement/>:<NotFound/>} />
-      <Route exact path="/studentRegister" element={isAdmin && isLogged? <StudentRegister/>:<NotFound/>} />
+      <Route exact path="/studentManagement" element={isAdmin && isLogged? <StudentManagement/>:""} />
+      <Route exact path="/studentRegister" element={isAdmin && isLogged? <StudentRegister/>:""} />
       <Route exact path="/studentLogin" element={isStudent ?<NotFound/> : <StudentLogin/>} />
-      <Route exact path="/teacherRegister" element={isAdmin && isLogged?<TeacherRegister/>:<NotFound/>} />
-      <Route exact path="/teacherManagement" element={isAdmin && isLogged? <TeacherManagement/>:<NotFound/>} />
+      <Route exact path="/teacherRegister" element={isAdmin && isLogged?<TeacherRegister/>:""} />
+      <Route exact path="/teacherManagement" element={isAdmin && isLogged? <TeacherManagement/>:""} />
       <Route exact path="/teacherLogin" element={isTchrLogged?<NotFound/> : <TeacherLogin/>} />
-      <Route exact path="/adminEditStd/:id" element={isAdmin && isLogged? <AdminEditStd/>:<NotFound/>} />
-      <Route exact path="/adminEditTchr/:id" element={isAdmin && isLogged? <AdminEditTchr/>:<NotFound/>} />
+      <Route exact path="/adminEditStd/:id" element={isAdmin && isLogged? <AdminEditStd/>:""} />
+      <Route exact path="/adminEditTchr/:id" element={isAdmin && isLogged? <AdminEditTchr/>:""} />
       <Route exact path="/studentProfile" element={  <StudentProfile/>} />
       <Route exact path="/teacherProfile" element={  <TeacherProfile/>} />
 

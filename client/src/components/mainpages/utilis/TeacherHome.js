@@ -48,7 +48,7 @@ return(
   <>
  
   {
-    isTeacher&&isTchrLogged ? LoggedRouter():NotFound()
+    isTeacher&&isTchrLogged ? LoggedRouter():""
   }
   </>
 )

@@ -16,9 +16,10 @@ function AdminAPI(token) {
           res.data.adminDetails.role === "admin" ? setIsAdmin(true) : setIsAdmin(false)
           
         } catch (err) {
-          Swal.fire({
-              text:err.response.data.msg,
-          })
+          console.log(err.response.data.msg);
+          // Swal.fire({
+          //     text:err.response.data.msg,
+          // })
         //   alert(err.response.data.msg);
         }
       };

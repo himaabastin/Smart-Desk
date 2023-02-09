@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import "./StudentRegister.css";
 
 const StudentRegister = () => {
@@ -12,6 +13,7 @@ const StudentRegister = () => {
     grade: "",
     password: "",
   });
+const navigate=useNavigate()
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
@@ -22,8 +24,7 @@ const StudentRegister = () => {
     e.preventDefault();
     try {
       await axios.post("/admin/studentRegister", { ...student });
-      localStorage.setItem("studentLogin", true);
-      window.location.href = "/studentManagement";
+      navigate("/studentManagement")
     } catch (err) {
       Swal.fire({
         text: err.response.data.msg,

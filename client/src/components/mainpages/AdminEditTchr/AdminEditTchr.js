@@ -57,7 +57,7 @@ useEffect(()=>{
     }
   }
   return (
-    <div style={{ marginLeft: "225px" }} className="edit_std">
+    <div  className="edit_std">
       <h3 style={{color:"black"}}>EDIT TEACHER</h3>
       <form onSubmit={handleSubmit}>
      

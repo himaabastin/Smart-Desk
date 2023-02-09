@@ -43,23 +43,23 @@ const studentCtrl = {
 
       //jwt for authentication
 
-      const access_token = createAccessToken({ id: newStudent._id });
-      const refresh_token = createRefreshToken({ id: newStudent._id });
+      // const access_token = createAccessToken({ id: newStudent._id });
+      // const refresh_token = createRefreshToken({ id: newStudent._id });
 
-      res
-        .cookie("refreshtoken", refresh_token, {
-          httpOnly: true,
-          path: "/student/refresh_token",
-          maxAge: 30 * 24 * 60 * 60 * 1000, //30days
-        })
-        .json({
-          msg: "Student registration successfull!!!",
-          access_token,
-          student: {
-            ...newStudent._doc,
-            password: "",
-          },
-        });
+      // res
+      //   .cookie("refreshtoken", refresh_token, {
+      //     httpOnly: true,
+      //     path: "/student/refresh_token",
+      //     maxAge: 30 * 24 * 60 * 60 * 1000, //30days
+      //   })
+      //   .json({
+      //     msg: "Student registration successfull!!!",
+      //     access_token,
+      //     student: {
+      //       ...newStudent._doc,
+      //       password: "",
+      //     },
+      //   });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
