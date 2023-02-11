@@ -14,7 +14,7 @@ const initialState = {
   bloodGroup: "",
   grade: "",
   address: "",
-  stdAdNo:"",
+ avatar:""
 };
 
 function AdminEditStd() {
@@ -46,12 +46,29 @@ useEffect(()=>{
     const { name, value } = e.target;
     setStudent({ ...student, [name]: value });
   };
+  const imageUpload=(e)=>{
+    console.log(e.target.files[0]);
+    setStudent({ ...student,avatar: e.target.files[0] });
+
+  }
   const handleSubmit=async(e)=>{
     e.preventDefault()
+    console.log('==',student.avatar,"===",student.avatar.name);
+    const formdata=new FormData()
+    formdata.append('avatar',student.avatar,student.avatar.name)
+    formdata.append('name',student.name)
+    formdata.append('email',student.email)
+    formdata.append('mobile',student.mobile)
+    formdata.append('dob',student.dob)
+    formdata.append('bloodGroup',student.bloodGroup)
+    formdata.append('grade',student.grade)
+    formdata.append('address',student.address)
+
+console.log(formdata);
     try {
       // if(!isAdmin && !isLogged) return Swal.fire({text:"You are not allowed to edit"})
 
-      await axios.put(`/admin/adminStdUpdate/${student.stdAdNo}`,{...student})
+      await axios.put(`/admin/adminStdUpdate/${student.stdAdNo}`,formdata)
       navigate("/studentManagement")
     } catch (err) {
       Swal.fire({
@@ -91,6 +108,10 @@ useEffect(()=>{
         <div className="row">
           <label htmlFor="address">Address</label>
           <input type="text" name="address" id="address" onChange={handleChangeInput}/>
+        </div>
+        <div className="row">
+          <label htmlFor="avatar">Upload image</label>
+          <input type="file" name="avatar" id="avatar" onChange={imageUpload}/>
         </div>
         <button type="submit">Edit</button>
       </form>

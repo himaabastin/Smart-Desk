@@ -129,10 +129,12 @@ const studentCtrl = {
   },
   adminStdUpdate:async(req,res)=>{
     try {
+      // console.log(req.file);
+      let avatar=(req.file) ? req.file.filename :  null
       const{name,email,grade,bloodGroup,mobile,dob,address}=req.body
 
       await Students.findOneAndUpdate({stdAdNo:req.params.stdAdNo},{
-        name,email,grade,bloodGroup,mobile,dob,address
+        name,email,grade,bloodGroup,mobile,dob,address,avatar
       })
       res.json({msg:"Student updated"})
       

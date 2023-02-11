@@ -7,10 +7,12 @@ import Swal from "sweetalert2";
 
 function StudentManagement() {
   const [allStudents, setAllStudents] = useState([]);
+  const [imagePath,setImagePath]=useState('') 
   const allStudentDetails = async (e) => {
     try {
       let allstds = await axios.get("/admin/allStudentDetails");
-      // console.log(allstds.data.allStudentDetails);
+      setImagePath(process.env.REACT_APP_IMAGE_PATH+allstds.avatar)
+
       setAllStudents(allstds.data.allStudentDetails);
     } catch (err) {
       Swal.fire({
@@ -38,7 +40,7 @@ console.log("stdId",id);
         {allStudents.map((student) => {
           return (
             <div className="student_card" style={{height:"650px"}} key={student._id}>
-              <img src={student.avatar} alt="" />
+              <img src={setImagePath} alt="" />
               <div className="student_box">
                 <h2 title={student.name} style={{ color: "black" }}>
                   
