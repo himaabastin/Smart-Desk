@@ -12,7 +12,8 @@
   }
   
   .teacher-picture {
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-left: 30px;
     width:300px;
     height:300px;
     text-align: center;
@@ -20,5 +21,5 @@
   
   .teacher-picture img {
     width: 100%;
-    border-radius: 50%;
+   
   }

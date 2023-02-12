@@ -36,7 +36,7 @@ function StudentProfile() {
   return (
     <div class="student-biodata">
         <div class="student-picture">
-      <img src={studentDetails.avatar} alt="Student"/>
+      <img src={`http://localhost:3000/public/images/${studentDetails.avatar}`} alt="Student"/>
     </div>
     <div class="student-info">
       <h2>Student Information</h2>

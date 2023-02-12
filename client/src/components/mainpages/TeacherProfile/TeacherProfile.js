@@ -36,7 +36,7 @@ function TeacherProfile() {
   return (
     <div class="teacher-biodata">
         <div class="teacher-picture">
-      <img src={teacherDetails.avatar} alt="teacher"/>
+      <img src= {`http://localhost:3000/public/images/${teacherDetails.avatar}`} alt="upload image"/>
     </div>
     <div class="teacher-info">
       <h2>Teacher Information</h2>

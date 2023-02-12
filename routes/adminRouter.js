@@ -30,10 +30,11 @@ router.post("/studentRegister",studentCtrl.studentRegister)
 router.get("/allStudentDetails",studentCtrl.allStudentDetails)
 router.put("/adminStdUpdate/:stdAdNo",upload.single('avatar'), studentCtrl.adminStdUpdate)
 
+
 //teacher
 router.post("/teacherRegister",teacherCtrl.teacherRegister)
 router.get("/allTeacherDetails",teacherCtrl.allTeacherDetails)
-router.put("/adminTchrUpdate/:teacherId",teacherCtrl.adminTchrUpdate)
+router.put("/adminTchrUpdate/:teacherId",upload.single('avatar'),teacherCtrl.adminTchrUpdate)
 
 
 module.exports = router;

@@ -119,10 +119,11 @@ const teacherCtrl={
       },
       adminTchrUpdate:async(req,res)=>{
         try {
+          let avatar=(req.file) ? req.file.filename :  null
           const{name,email,subject,grade,mobile}=req.body
     
           await Teachers.findOneAndUpdate({teacherId:req.params.teacherId},{
-            name,email,subject,grade,mobile,
+            name,email,subject,grade,mobile,avatar
           })
           res.json({msg:"teacher updated"})
           

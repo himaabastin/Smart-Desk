@@ -37,7 +37,7 @@ function TeacherManagement() {
         {allTeachers.map((teacher)=>{
           return(
             <div className='student_card' key={teacher._id}>
-              <img src={teacher.avatar} alt=''/>
+              <img src= {`http://localhost:3000/public/images/${teacher.avatar}`}alt=''/>
               <div className='student_box'>
               <h2 title={teacher.name} style={{color:"black"}}>{teacher.name}</h2>
               <span>Subject: {teacher.subject}</span>

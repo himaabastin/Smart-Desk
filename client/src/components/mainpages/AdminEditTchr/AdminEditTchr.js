@@ -12,6 +12,7 @@ const initialState = {
   mobile: "",
   grade: "",
   subject: "",
+  avatar:""
 };
 
 function AdminEditTchr() {
@@ -43,12 +44,26 @@ useEffect(()=>{
     const { name, value } = e.target;
     setTeacher({ ...teacher, [name]: value });
   };
+  const imageUpload=(e)=>{
+    console.log(e.target.files[0]);
+    setTeacher({ ...teacher,avatar: e.target.files[0] });
+
+  }
   const handleSubmit=async(e)=>{
     e.preventDefault()
+    console.log('==',teacher.avatar,"===",teacher.avatar.name);
+    const formdata=new FormData()
+    formdata.append('avatar',teacher.avatar,teacher.avatar.name)
+    formdata.append('name',teacher.name)
+    formdata.append('email',teacher.email)
+    formdata.append('mobile',teacher.mobile)
+    formdata.append('subject',teacher.subject)
+
+    formdata.append('grade',teacher.grade)
     try {
       // if(!isAdmin && !isLogged) return Swal.fire({text:"You are not allowed to edit"})
 
-      await axios.put(`/admin/adminTchrUpdate/${teacher.teacherId}`,{...teacher})
+      await axios.put(`/admin/adminTchrUpdate/${teacher.teacherId}`,formdata)
       navigate("/teacherManagement")
     } catch (err) {
       Swal.fire({
@@ -80,6 +95,10 @@ useEffect(()=>{
         <div className="row">
           <label htmlFor="subject">Subject</label>
           <input type="text" name="subject" id="subject" onChange={handleChangeInput}/>
+        </div>
+        <div className="row">
+          <label htmlFor="avatar">Upload image</label>
+          <input type="file" name="avatar" id="avatar" onChange={imageUpload}/>
         </div>
         <button type="submit">Edit</button>
       </form>
