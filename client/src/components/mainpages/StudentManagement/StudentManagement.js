@@ -11,7 +11,7 @@ function StudentManagement() {
   const allStudentDetails = async (e) => {
     try {
       let allstds = await axios.get("/admin/allStudentDetails");
-      setImagePath(process.env.REACT_APP_IMAGE_PATH+allstds.avatar)
+      setImagePath()
 
       setAllStudents(allstds.data.allStudentDetails);
     } catch (err) {
