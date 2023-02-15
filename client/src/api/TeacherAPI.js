@@ -10,7 +10,7 @@ function TeacherAPI(token){
          const getTeacher=async ()=>{
             try {
                 const res=await axios.get("/teacher/refresh_token")
-                console.log("teacherAPI",res.data.teacherDetails.role);
+                // console.log("teacherAPI",res.data.teacherDetails.role);
     
                 setIsTchrLogged(true);
                 res.data.teacherDetails.role === "teacher" ?setIsTeacher(true) :setIsTeacher(false)

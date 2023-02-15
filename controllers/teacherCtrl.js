@@ -1,7 +1,7 @@
 const Teachers = require("../models/teacherModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const Students=require("../models/studentModel")
 
 const teacherCtrl={
     teacherRegister: async (req, res) => {
@@ -63,12 +63,12 @@ const teacherCtrl={
     
             if (err)
               return res.status(400).json({ msg: "Please Login or Register" });
-              
+          
               const teacherDetails = await Teachers.findById(teacher.id).select("-password")
             const accesstoken = createAccessToken({ id: teacher._id });
-            
+            const students=await Students.find({grade:teacherDetails.grade})
     
-            res.json({ accesstoken,rf_token,teacherDetails });
+            res.json({ accesstoken,rf_token,teacherDetails,students });
           });
         
         } catch (err) {

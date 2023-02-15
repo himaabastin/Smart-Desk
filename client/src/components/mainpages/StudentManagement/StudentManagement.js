@@ -51,12 +51,15 @@ console.log("stdId",id);
                 <p>Email: {student.email}</p>
                 <p>Mobile: {student.mobile}</p>
                 <p>DOB: {student.dob}</p>
-                <p>BloodGroup: {student.bloodgroup}</p>
+                <p>BloodGroup: {student.bloodGroup}</p>
                 <p>Address: {student.address}</p>
+                {/* <p>Block: {student.isBlocked.toString()}</p> */}
+
                 <p style={{visibility:"hidden"}}>{student._id}</p>
                 <div className="row_btn">
-                  <a href={`/adminEditStd/${student.stdAdNo}`} style={{color:"blue"}}>EDIT</a>
-                  <button style={{ background: "#cf1928" }}>Block</button>
+                  <a href={`/adminEditStd/${student.stdAdNo}`} className="editButton">EDIT</a>
+                  
+                 
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate ,} from "react-router-dom";
 import "./StudentRegister.css";
-
+import Otp from "../../OTP/Otp"
 const StudentRegister = () => {
   const [student, setStudent] = useState({
     stdAdNo:"",
@@ -13,19 +13,24 @@ const StudentRegister = () => {
     grade: "",
     password: "",
   });
-  
+  // const [otp,setOtp]=useState("")
 const navigate=useNavigate()
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setStudent({ ...student, [name]: value });
   };
-
+// const onChangeOtp=(e)=>{
+//   const{name,value}=e.target;
+//   setOtp({...otp,[name]:value})
+// }
   const registerSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post("/admin/studentRegister", { ...student });
-      // await axios.post("/admin/verify-email",{})
+      console.log("std",student);
+      // await axios.post("/admin/verify-email",{...otp})
+      // return <Otp studentId={student.Id} />;
       navigate("/studentManagement")///////////////////////////////////////////////////////////////
     } catch (err) {
       Swal.fire({
@@ -99,12 +104,27 @@ const navigate=useNavigate()
                 onChange={onChangeInput}
               />
             </div>
+
+            {/* <div className="input-box">
+              <label htmlFor="otp">OTP</label>
+              <input
+                type="password"
+                placeholder="Enter otp send to your email"
+                name="otp"
+                onChange={onChangeOtp}
+              />
+            </div> */}
+           
           </div>
           <div className="button-container">
             <button type="submit">Register</button>
             
           </div>
+      
         </form>
+        <div>
+              <Otp/>
+            </div>
       </div>
     </div>
   );

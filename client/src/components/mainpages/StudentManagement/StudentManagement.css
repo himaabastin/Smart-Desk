@@ -85,3 +85,18 @@
     font-size:small;
   }
 }
+.editButton{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(12, 86, 105);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.editButton:hover{
+  background-color: rgb(13, 13, 90);
+  color: white;
+
+}

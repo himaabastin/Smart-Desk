@@ -50,6 +50,10 @@ const studentSchema=new mongoose.Schema({
         default:false,
         required:true
        
+    },
+    isBlocked:{
+        type:Boolean,
+        default:false
     }
 
 },{

@@ -1,4 +1,5 @@
 import React,{useContext} from 'react'
+import { Link } from 'react-router-dom'
 import { GlobalState } from '../../../GlobalState'
 import NotFound from './NotFound/NotFound'
 import "./TeacherHome.css"
@@ -33,7 +34,7 @@ function LoggedRouter(){
 
  
 <div className="boxForTchr">
-  <div><button className='ButtonTchr'>Students</button></div>
+  <div><Link to="/tchrViewStds"><button className='ButtonTchr'>Students</button></Link></div>
   <div><button className='ButtonTchr'>Timetable</button></div>
   <div><button className='ButtonTchr'>Marks</button></div>
   <div><button  className='ButtonTchr'>Teachers </button></div>

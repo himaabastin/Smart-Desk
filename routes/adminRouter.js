@@ -30,6 +30,8 @@ router.get('/adminInfo',adminAuth,adminCtrl.getAdmin)
 router.post("/studentRegister",studentCtrl.studentRegister)
 router.get("/allStudentDetails",studentCtrl.allStudentDetails)
 router.put("/adminStdUpdate/:stdAdNo",upload.single('avatar'), studentCtrl.adminStdUpdate)
+// router.put("/adminBlockStd/:stdAdNo", studentCtrl.adminBlockStd)
+router.get("/stdSingleDetail/:stdAdNo",studentCtrl.studentSingleDetails)
 router.post("/verify-email",studentCtrl.verifyEmail)
 
 //teacher

@@ -18,7 +18,7 @@ function StudentAPI(token) {
           
         } catch (err) {
           console.log("stdapi",err);
-          console.log(err.response.data.msg);
+          // console.log(err.response.data.msg);
           // Swal.fire({
           //     text:err.response.data.msg,
           // })
