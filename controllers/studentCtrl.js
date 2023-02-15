@@ -1,13 +1,25 @@
 const Students = require("../models/studentModel");
+const VerificationToken = require("../models/verificationToken");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const {
+  generateOTP,
+  mailTransport,
+  generateEmailTemplate,
+  plainEmailTemplate,
+} = require("../utilis/mail");
+const { isValidObjectId } = require("mongoose");
 
 const studentCtrl = {
   studentRegister: async (req, res) => {
     try {
-      const { stdAdNo,name, email, mobile, grade, password } = req.body;
+      const { stdAdNo, name, email, mobile, grade, password } = req.body;
       if (
-        (stdAdNo===""||name === "" || email === "" || mobile === "" || grade === "",
+        (stdAdNo === "" ||
+          name === "" ||
+          email === "" ||
+          mobile === "" ||
+          grade === "",
         password === "")
       )
         return res.status(400).json({ msg: "All fields are mandatory" });
@@ -39,28 +51,25 @@ const studentCtrl = {
         mobile,
       });
 
+      //otp
+      const OTP = generateOTP();
+      const verificationToken = new VerificationToken({
+        owner: newStudent._id,
+        token: OTP,
+      });
+
+      await verificationToken.save();
       await newStudent.save();
 
-      //jwt for authentication
+      mailTransport().sendMail({
+        from: process.env._USERNAME,
+        to: newStudent.email,
+        subject: "Verify your email",
+        html: generateEmailTemplate(OTP),
+      });
 
-      // const access_token = createAccessToken({ id: newStudent._id });
-      // const refresh_token = createRefreshToken({ id: newStudent._id });
-
-      // res
-      //   .cookie("refreshtoken", refresh_token, {
-      //     httpOnly: true,
-      //     path: "/student/refresh_token",
-      //     maxAge: 30 * 24 * 60 * 60 * 1000, //30days
-      //   })
-      //   .json({
-      //     msg: "Student registration successfull!!!",
-      //     access_token,
-      //     student: {
-      //       ...newStudent._doc,
-      //       password: "",
-      //     },
-      //   });
     } catch (err) {
+      console.log(err);
       return res.status(500).json({ msg: err.message });
     }
   },
@@ -79,7 +88,10 @@ const studentCtrl = {
         return res.status(400).json({ msg: "All fields should be filled" });
 
       const student = await Students.findOne({ email });
-      if (!student) return res.status(400).json({ msg: "Student doesn't exist" });
+      if (!student)
+        return res.status(400).json({ msg: "Student doesn't exist" });
+        
+        // if(student.verified === false) return res.status(400).json({ msg: "Email is not verified" });
       // res.json({password,student});
       const isMatch = await bcrypt.compare(password, student.password);
       if (!isMatch) return res.status(400).json({ msg: "Incorrect password" });
@@ -98,50 +110,103 @@ const studentCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  studentLogout:async(req,res)=>{
+  studentLogout: async (req, res) => {
     try {
-      res.clearCookie("refreshtoken",{path:"/student/refresh_token"})
-      return res.json({msg:"Studen Logged out"})
+      res.clearCookie("refreshtoken", { path: "/student/refresh_token" });
+      return res.json({ msg: "Studen Logged out" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
-  refreshToken: async(req, res) => {
+  refreshToken: async (req, res) => {
     try {
       const rf_token = req.cookies.refreshtoken;
       if (!rf_token)
         return res.status(400).json({ msg: "Please Login or Register" });
-      jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, async(err, student) => {
+      jwt.verify(
+        rf_token,
+        process.env.REFRESH_TOKEN_SECRET,
+        async (err, student) => {
+          if (err)
+            return res.status(400).json({ msg: "Please Login or Register" });
 
-        if (err)
-          return res.status(400).json({ msg: "Please Login or Register" });
-          
-          const studentDetails = await Students.findById(student.id).select("-password")
-        const accesstoken = createAccessToken({ id: student._id });
-        
+          const studentDetails = await Students.findById(student.id).select(
+            "-password"
+          );
+          const accesstoken = createAccessToken({ id: student._id });
 
-        res.json({ accesstoken,rf_token,studentDetails });
-      });
-    
+          res.json({ accesstoken, rf_token, studentDetails });
+        }
+      );
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
-  adminStdUpdate:async(req,res)=>{
+  adminStdUpdate: async (req, res) => {
     try {
       // console.log(req.file);
-      let avatar=(req.file) ? req.file.filename :  null
-      const{name,email,grade,bloodGroup,mobile,dob,address}=req.body
+      let avatar = req.file ? req.file.filename : null;
+      const { name, email, grade, bloodGroup, mobile, dob, address } = req.body;
 
-      await Students.findOneAndUpdate({stdAdNo:req.params.stdAdNo},{
-        name,email,grade,bloodGroup,mobile,dob,address,avatar
-      })
-      res.json({msg:"Student updated"})
-      
+      await Students.findOneAndUpdate(
+        { stdAdNo: req.params.stdAdNo },
+        {
+          name,
+          email,
+          grade,
+          bloodGroup,
+          mobile,
+          dob,
+          address,
+          avatar,
+        }
+      );
+      res.json({ msg: "Student updated" });
     } catch (err) {
-      res.status(500).json({msg:err.message})
+      res.status(500).json({ msg: err.message });
     }
-  }
+  },
+  verifyEmail: async (req, res) => {
+    const { studentId, otp } = req.body;
+
+    if (!studentId || !otp.trim())
+      return res
+        .status(400)
+        .json({ msg: "Invalid request,missing parameters!" });
+    if (!isValidObjectId(studentId))
+      return res.status(400).json({ msg: "Invalid student id" });
+
+    const student = await Students.findById(studentId);
+
+    if (!student)
+      return res.status(400).json({ msg: "Sorry,student not found" });
+    if (student.verified)
+      return res.status(400).json({ msg: "This student is already verified!" });
+
+    const token = await VerificationToken.findOne({ owner: student._id });
+    if (!token)
+      return res.status(400).json({ msg: "Sorry,student not found!" });
+
+    const isMatched = await token.compareToken(otp);
+    if (!isMatched)
+      return res.status(400).json({ msg: "Please provide a valid token!" });
+
+    student.verified = true;
+    await VerificationToken.findByIdAndDelete(token._id);
+
+    await student.save();
+
+    mailTransport().sendMail({
+      from: "emailverfication@email.com",
+      to: student.email,
+      subject: "Confirmation",
+      html: plainEmailTemplate(
+        "Email Verfied Successfully",
+        "Thanks for connecting with us"
+      ),
+    });
+    res.json({msg:"Student Email is Verified!"})
+  },
 };
 
 const createAccessToken = (student) => {

@@ -20,6 +20,7 @@ import AdminEditTchr from "./AdminEditTchr/AdminEditTchr";
 import AdminProfileEdit from "./AdminProfileEdit/AdminProfileEdit";
 import StudentProfile from "./StudentProfile/StudentProfile";
 import TeacherProfile from "./TeacherProfile/TeacherProfile";
+import Otp from "../OTP/Otp";
 const Pages = () => {
   const state=useContext(GlobalState)
   const [isLogged]=state.adminAPI.isLogged
@@ -41,6 +42,8 @@ const Pages = () => {
       <Route exact path="/adminProfile" element={<AdminProfile/>} />
       <Route exact path="/studentManagement" element={isAdmin && isLogged? <StudentManagement/>:""} />
       <Route exact path="/studentRegister" element={isAdmin && isLogged? <StudentRegister/>:""} />
+      <Route exact path="/otp" element={isAdmin && isLogged?<Otp/>:""} />
+
       <Route exact path="/studentLogin" element={isStudent ?<NotFound/> : <StudentLogin/>} />
       <Route exact path="/teacherRegister" element={isAdmin && isLogged?<TeacherRegister/>:""} />
       <Route exact path="/teacherManagement" element={isAdmin && isLogged? <TeacherManagement/>:""} />

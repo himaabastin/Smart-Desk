@@ -44,6 +44,12 @@ const studentSchema=new mongoose.Schema({
     avatar:{
         type:String,
         default:"https://cdn4.iconfinder.com/data/icons/people-avatar-1-2/512/33-512.png"
+    },
+    verified:{
+        type:Boolean,
+        default:false,
+        required:true
+       
     }
 
 },{

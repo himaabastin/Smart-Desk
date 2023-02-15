@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,} from "react-router-dom";
 import "./StudentRegister.css";
 
 const StudentRegister = () => {
@@ -13,6 +13,7 @@ const StudentRegister = () => {
     grade: "",
     password: "",
   });
+  
 const navigate=useNavigate()
 
   const onChangeInput = (e) => {
@@ -24,7 +25,8 @@ const navigate=useNavigate()
     e.preventDefault();
     try {
       await axios.post("/admin/studentRegister", { ...student });
-      navigate("/studentManagement")
+      // await axios.post("/admin/verify-email",{})
+      navigate("/studentManagement")///////////////////////////////////////////////////////////////
     } catch (err) {
       Swal.fire({
         text: err.response.data.msg,
