@@ -25,10 +25,22 @@ await newCategory.save()
 },
 deleteCategory:async(req,res)=>{
 try {
-    
+    await Category.findByIdAndDelete(req.params.id)
+    res.json({msg:"Deleted"})
 } catch (err) {
+    res.status(500).json({msg:err.message})
     
 }
+},
+updateCategory:async(req,res)=>{
+    try{
+const {name}=req.body
+await Category.findByIdAndUpdate({_id:req.params.id},{name})
+res.json({msg:'Updated a category'})
+    }catch(err){
+        res.status(500).json({msg:err.message})
+
+    }
 }
 }
 
