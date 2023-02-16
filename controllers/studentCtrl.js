@@ -62,7 +62,7 @@ const studentCtrl = {
       await newStudent.save();
 
       mailTransport().sendMail({
-        from: "himabastin0506@gmail.com",
+        from:process.env._USERNAME,
         to: newStudent.email,
         subject: "Verify your email",
         html: generateEmailTemplate(OTP),

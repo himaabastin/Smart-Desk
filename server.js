@@ -24,7 +24,7 @@ app.use('/teacher',require("./routes/teacherRouter"))
 
 app.use('/api',require("./routes/upload"))
 
-
+app.use("/api",require("./routes/categoryRouter"))
 //connect to mongodb
 const URI=process.env.MONGODB_URL
 mongoose.connect(URI,err=>{

@@ -73,6 +73,7 @@ exports.plainEmailTemplate=(heading,message)=>{
     <div style="max-width:620px;margin:0 auto:font-family:sans-serif;color:#272727;">
     <h1 style="background:#f6f6f6;padding:10px:text-align:center;color:#272727;">${heading}</h1>
     <p style="color:#272727;text-align:center;">${message}</p>
+    
     </div>
     </div>
     </body>

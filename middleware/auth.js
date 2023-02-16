@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 
-const adminAuth = (req, res, next) => {
+const auth = (req, res, next) => {
     try {
         const token=req.header("Authorization")
         // console.log(token,"header");
@@ -18,4 +18,4 @@ const adminAuth = (req, res, next) => {
     }
 };
 
-module.exports = adminAuth;
+module.exports = auth;
