@@ -47,8 +47,8 @@ const studentSchema=new mongoose.Schema({
     },
     verified:{
         type:Boolean,
-        default:false,
-        required:true
+        default:false
+       
        
     },
     isBlocked:{

@@ -80,4 +80,3 @@ exports.plainEmailTemplate=(heading,message)=>{
     </html>
     `
 }
-   

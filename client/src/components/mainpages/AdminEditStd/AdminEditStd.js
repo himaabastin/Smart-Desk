@@ -83,35 +83,35 @@ console.log(formdata);
      
         <div className="row">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" onChange={handleChangeInput} />
+          <input type="text" name="name" id="name" value={student.name} onChange={handleChangeInput} />
         </div>
         <div className="row">
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" onChange={handleChangeInput} />
+          <input type="text" name="email" id="email"value={student.email}  onChange={handleChangeInput} />
         </div>
         <div className="row">
           <label htmlFor="mobile">Mobile</label>
-          <input type="text" name="mobile" id="mobile"  onChange={handleChangeInput}/>
+          <input type="text" name="mobile" id="mobile" value={student.mobile}  onChange={handleChangeInput}/>
         </div>
         <div className="row">
           <label htmlFor="dob">Date of Birth</label>
-          <input type="text" name="dob" id="dob" onChange={handleChangeInput}/>
+          <input type="text" name="dob" id="dob" value={student.dob} onChange={handleChangeInput}/>
         </div>
         <div className="row">
           <label htmlFor="bloodGroup">Blood Group</label>
-          <input type="text" name="bloodGroup" id="bloodGroup" onChange={handleChangeInput}/>
+          <input type="text" name="bloodGroup" id="bloodGroup"value={student.bloodGroup}  onChange={handleChangeInput}/>
         </div>
         <div className="row">
           <label htmlFor="grade">Class</label>
-          <input type="text" name="grade" id="grade" onChange={handleChangeInput}/>
+          <input type="text" name="grade" id="grade"value={student.grade}  onChange={handleChangeInput}/>
         </div>
         <div className="row">
           <label htmlFor="address">Address</label>
-          <input type="text" name="address" id="address" onChange={handleChangeInput}/>
+          <input type="text" name="address" id="address"value={student.address}  onChange={handleChangeInput}/>
         </div>
         <div className="row">
           <label htmlFor="avatar">Upload image</label>
-          <input type="file" name="avatar" id="avatar" onChange={imageUpload}/>
+          <input type="file" name="avatar" id="avatar"   onChange={imageUpload}/>
         </div>
         <button type="submit">Edit</button>
       </form>

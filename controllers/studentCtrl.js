@@ -197,7 +197,7 @@ const studentCtrl = {
     await student.save();
 
     mailTransport().sendMail({
-      from: "emailverfication@email.com",
+      from:process.env._USERNAME,
       to: student.email,
       subject: "Confirmation",
       html: plainEmailTemplate(

@@ -78,23 +78,23 @@ useEffect(()=>{
      
         <div className="row">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" onChange={handleChangeInput} />
+          <input type="text" name="name" id="name" value={teacher.name} onChange={handleChangeInput} />
         </div>
         <div className="row">
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" onChange={handleChangeInput} />
+          <input type="text" name="email" id="email"value={teacher.email} onChange={handleChangeInput} />
         </div>
         <div className="row">
           <label htmlFor="mobile">Mobile</label>
-          <input type="text" name="mobile" id="mobile"  onChange={handleChangeInput}/>
+          <input type="text" name="mobile" id="mobile" value={teacher.mobile} onChange={handleChangeInput}/>
         </div>
         <div className="row">
           <label htmlFor="grade">Grade</label>
-          <input type="text" name="grade" id="grade" onChange={handleChangeInput}/>
+          <input type="text" name="grade" id="grade"value={teacher.grade} onChange={handleChangeInput}/>
         </div>
         <div className="row">
           <label htmlFor="subject">Subject</label>
-          <input type="text" name="subject" id="subject" onChange={handleChangeInput}/>
+          <input type="text" name="subject" id="subject"value={teacher.subject} onChange={handleChangeInput}/>
         </div>
         <div className="row">
           <label htmlFor="avatar">Upload image</label>

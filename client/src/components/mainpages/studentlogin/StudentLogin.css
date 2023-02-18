@@ -76,7 +76,7 @@
       background-image: linear-gradient(#61045f,#aa076b);
   }
   
-  
+
   @media(max-width:600px){
       .Container{
           min-width:600px;
