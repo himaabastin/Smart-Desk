@@ -32,6 +32,7 @@ router.get("/allStudentDetails",studentCtrl.allStudentDetails)
 router.put("/adminStdUpdate/:stdAdNo",upload.single('avatar'), studentCtrl.adminStdUpdate)
 // router.put("/adminBlockStd/:stdAdNo", studentCtrl.adminBlockStd)
 router.get("/stdSingleDetail/:stdAdNo",studentCtrl.studentSingleDetails)
+// router.get("/verify-student/:id",studentCtrl.studentVerify)
 router.post("/verify-email",studentCtrl.verifyEmail)
 
 //teacher

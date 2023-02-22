@@ -73,34 +73,37 @@ useEffect(()=>{
   }
   return (
     <div  className="edit_std">
+      <form className="form-style-9"onSubmit={handleSubmit}>
       <h3 style={{color:"black"}}>EDIT TEACHER</h3>
-      <form onSubmit={handleSubmit}>
-     
-        <div className="row">
+      <ul>
+      <li>
           <label htmlFor="name">Name</label>
           <input type="text" name="name" id="name" value={teacher.name} onChange={handleChangeInput} />
-        </div>
-        <div className="row">
+          </li>
+          <li>
           <label htmlFor="email">Email</label>
           <input type="text" name="email" id="email"value={teacher.email} onChange={handleChangeInput} />
-        </div>
-        <div className="row">
+          </li>
+          <li>
           <label htmlFor="mobile">Mobile</label>
           <input type="text" name="mobile" id="mobile" value={teacher.mobile} onChange={handleChangeInput}/>
-        </div>
-        <div className="row">
+          </li>
+          <li>
           <label htmlFor="grade">Grade</label>
           <input type="text" name="grade" id="grade"value={teacher.grade} onChange={handleChangeInput}/>
-        </div>
-        <div className="row">
+          </li>
+          <li>
           <label htmlFor="subject">Subject</label>
           <input type="text" name="subject" id="subject"value={teacher.subject} onChange={handleChangeInput}/>
-        </div>
-        <div className="row">
+          </li>
+          <li>
           <label htmlFor="avatar">Upload image</label>
           <input type="file" name="avatar" id="avatar" onChange={imageUpload}/>
-        </div>
-        <button type="submit">Edit</button>
+          </li>
+          <li>
+        <button className="btnStd" style={{background:"yellowgreen"}} type="submit">Edit</button>
+        </li>
+        </ul>
       </form>
     </div>
   );

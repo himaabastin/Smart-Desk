@@ -78,42 +78,48 @@ console.log(formdata);
   }
   return (
     <div className="edit_std">
-      <h3 style={{color:"black"}}>EDIT STUDENT</h3>
-      <form onSubmit={handleSubmit}>
      
-        <div className="row">
+      <form className="form-style-9" onSubmit={handleSubmit}>
+      <h3 style={{color:" #556354"}}>EDIT STUDENT</h3>
+     <ul>
+       <li>
+
+      
           <label htmlFor="name">Name</label>
           <input type="text" name="name" id="name" value={student.name} onChange={handleChangeInput} />
-        </div>
-        <div className="row">
+          </li>
+        <li>
           <label htmlFor="email">Email</label>
           <input type="text" name="email" id="email"value={student.email}  onChange={handleChangeInput} />
-        </div>
-        <div className="row">
+          </li>
+          <li>
           <label htmlFor="mobile">Mobile</label>
-          <input type="text" name="mobile" id="mobile" value={student.mobile}  onChange={handleChangeInput}/>
-        </div>
-        <div className="row">
+          <input type="text" name="mobile" id="mobile"className="field-style field-split align-left" value={student.mobile}  onChange={handleChangeInput}/>
+          </li>
+          <li>
           <label htmlFor="dob">Date of Birth</label>
-          <input type="text" name="dob" id="dob" value={student.dob} onChange={handleChangeInput}/>
-        </div>
-        <div className="row">
+          <input type="text" name="dob" id="dob"className="field-style field-split align-left"  value={student.dob} onChange={handleChangeInput}/>
+          </li>
+          <li>
           <label htmlFor="bloodGroup">Blood Group</label>
-          <input type="text" name="bloodGroup" id="bloodGroup"value={student.bloodGroup}  onChange={handleChangeInput}/>
-        </div>
-        <div className="row">
+          <input type="text" name="bloodGroup" id="bloodGroup" className="field-style field-split align-left" value={student.bloodGroup}  onChange={handleChangeInput}/>
+          </li>
+          <li>
           <label htmlFor="grade">Class</label>
-          <input type="text" name="grade" id="grade"value={student.grade}  onChange={handleChangeInput}/>
-        </div>
-        <div className="row">
+          <input type="text" name="grade" id="grade" className="field-style field-split align-left" value={student.grade}  onChange={handleChangeInput}/>
+          </li>
+          <li>
           <label htmlFor="address">Address</label>
-          <input type="text" name="address" id="address"value={student.address}  onChange={handleChangeInput}/>
-        </div>
-        <div className="row">
+          <input type="text" name="address" id="address" className="field-style field-split align-left" value={student.address}  onChange={handleChangeInput}/>
+          </li>
+          <li>
           <label htmlFor="avatar">Upload image</label>
-          <input type="file" name="avatar" id="avatar"   onChange={imageUpload}/>
-        </div>
-        <button type="submit">Edit</button>
+          <input type="file" name="avatar" id="avatar" className="field-style"   onChange={imageUpload}/>
+          </li>
+          <li>
+        <button className="btnStd " type="submit">Edit</button>
+        </li>
+        </ul>
       </form>
     </div>
   );

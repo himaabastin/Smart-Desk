@@ -91,7 +91,7 @@ const studentCtrl = {
       if (!student)
         return res.status(400).json({ msg: "Student doesn't exist" });
        if(student.isBlocked)  return res.status(400).json({ msg: "Sorry you are restricted" });
-        // if(student.verified === false) return res.status(400).json({ msg: "Email is not verified" });
+        if(student.verified === false) return res.status(400).json({ msg: "Email is not verified" });
       // res.json({password,student});
       const isMatch = await bcrypt.compare(password, student.password);
       if (!isMatch) return res.status(400).json({ msg: "Incorrect password" });
@@ -207,14 +207,15 @@ const studentCtrl = {
     });
     res.json({msg:"Student Email is Verified!"})
   },
-  adminBlockStd:async(req,res)=>{
-    await Students.findOneAndUpdate({stdAdNo: req.params.stdAdNo},{isBlocked:true})
-    res.json({ msg: "Student Blocked" });
-  },
+  // adminBlockStd:async(req,res)=>{
+  //   await Students.findOneAndUpdate({stdAdNo: req.params.stdAdNo},{isBlocked:true})
+  //   res.json({ msg: "Student Blocked" });
+  // },
   studentSingleDetails:async(req,res)=>{
     const stdDetail=await Students.findOne({stdAdNo:req.params.stdAdNo})
     res.json(stdDetail)
-  }
+  },
+ 
 };
 
 const createAccessToken = (student) => {

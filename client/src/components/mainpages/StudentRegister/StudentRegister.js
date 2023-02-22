@@ -120,13 +120,16 @@ const navigate=useNavigate()
             <button type="submit">Register</button>
             
           </div>
+         
       
         </form>
-        <div>
+          <div >
               <Otp/>
             </div>
       </div>
+    
     </div>
+    
   );
 };
 
