@@ -22,6 +22,7 @@ import StudentProfile from "./StudentProfile/StudentProfile";
 import TeacherProfile from "./TeacherProfile/TeacherProfile";
 import Otp from "../OTP/Otp";
 import TchrViewStds from "./TchrViewStds/TchrViewStds";
+import TimeTableTchr from "./TimeTableTchr/TimeTableTchr";
 const Pages = () => {
   const state=useContext(GlobalState)
   const [isLogged]=state.adminAPI.isLogged
@@ -54,6 +55,8 @@ const Pages = () => {
       <Route exact path="/studentProfile" element={  <StudentProfile/>} />
       <Route exact path="/teacherProfile" element={  <TeacherProfile/>} />
       <Route exact path="/tchrViewStds" element={  <TchrViewStds/>} />
+      <Route exact path="/timeTableTchr" element={<TimeTableTchr/>} />
+
 
 
       

@@ -35,7 +35,7 @@ function LoggedRouter(){
  
 <div className="boxForTchr">
   <div><Link to="/tchrViewStds"><button className='ButtonTchr'>Students</button></Link></div>
-  <div><button className='ButtonTchr'>Timetable</button></div>
+  <div><Link to="/timeTableTchr"><button className='ButtonTchr'>Timetable</button></Link></div>
   <div><button className='ButtonTchr'>Marks</button></div>
   <div><button  className='ButtonTchr'>Teachers </button></div>
  
